@@ -19,7 +19,7 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <style>
-        /* Tout le texte de la page en Source Sans Pro et en #8C8B82, fond blanc */
+        /* 1. Fond global de la page blanc et police Source Sans Pro */
         body {
             font-family: 'Source Sans Pro', sans-serif !important;
             background-color: #FFFFFF !important;
@@ -29,11 +29,12 @@
             padding: 30px;
         }
 
+        /* 2. Textes généraux en #8C8B82 */
         p, label, span, div {
             color: #8C8B82 !important;
         }
 
-        /* Titres en #8DA6D6 */
+        /* 3. Titres en #8DA6D6 */
         h1, h3 {
             color: #8DA6D6 !important;
         }
@@ -42,7 +43,7 @@
             text-align: center;
         }
 
-        /* Blocs d'exercices en fond #E6E6E1 */
+        /* 4. Blocs d'exercices en fond #E6E6E1 avec bordure #8DA6D6 */
         .exercice {
             background-color: #E6E6E1 !important; 
             border-left: 6px solid #8DA6D6 !important;
@@ -51,6 +52,7 @@
             border-radius: 6px;
         }
 
+        /* Boutons */
         button {
             background-color: #8DA6D6 !important;
             color: white !important;
@@ -63,6 +65,11 @@
             margin-top: 10px;
         }
 
+        button:hover {
+            background-color: #728ec4 !important;
+        }
+
+        /* Champs de saisie */
         input[type="text"], input[type="number"] {
             padding: 8px;
             font-size: 16px;
@@ -74,6 +81,7 @@
             color: #333 !important;
         }
 
+        /* 5. Style des volets interactifs (Indices / Corrections) */
         details {
             margin-top: 15px;
             background: #FFFFFF !important;
@@ -86,6 +94,10 @@
             font-weight: 600;
             color: #8DA6D6 !important;
             cursor: pointer;
+        }
+
+        details p {
+            color: #8C8B82 !important;
         }
     </style>
 </head>
@@ -104,16 +116,34 @@
         <button onclick="verifier1()">Valider</button>
         <div id="feedback1" style="margin-top: 10px; font-weight: bold;"></div>
 
+        <!-- Volet Indice cliquable -->
         <details>
             <summary>💡 Besoin d'un indice ?</summary>
-            <p>Essayez d'isoler le terme en \(x\) en faisant passer le \(-5\) de l'autre côté.</p>
+            <p>Essayez d'isoler le terme en \(x\) en faisant passer le \(-5\) de l'autre côté de l'égalité.</p>
         </details>
 
+        <!-- Volet Correction cliquable -->
         <details>
             <summary>📖 Voir la correction détaillée</summary>
-            <p>1. On part de : \(3x - 5 = 10\)</p>
-            <p>2. On ajoute 5 : \(3x = 15\)</p>
+            <p>1. On part de l'équation : \(3x - 5 = 10\)</p>
+            <p>2. On ajoute 5 des deux côtés : \(3x = 15\)</p>
             <p>3. On divise par 3 : \(x = 5\)</p>
+        </details>
+    </div>
+
+    <!-- EXERCICE 2 -->
+    <div class="exercice">
+        <h3>Exercice 2 : Calcul de dérivée</h3>
+        <p>Soit la fonction \(f(x) = 2x^3 - 4x + 1\). Quel est le coefficient directeur de la tangente en \(x = 1\), c'est-à-dire la valeur de \(f'(1)\) ?</p>
+        <input type="number" id="rep2" placeholder="Votre réponse">
+        <br>
+        <button onclick="verifier2()">Valider</button>
+        <div id="feedback2" style="margin-top: 10px; font-weight: bold;"></div>
+
+        <!-- Volet Indice cliquable -->
+        <details>
+            <summary>💡 Besoin d'un indice ?</summary>
+            <p>Le coefficient directeur en \(x = 1\) correspond à \(f'(1)\). Calculez d'abord la dérivée \(f'(x)\).</p>
         </details>
     </div>
 
@@ -125,7 +155,22 @@
                 feed.innerHTML = "🎉 Correct ! Bravo.";
                 feed.style.color = "#27ae60";
             } else {
-                feed.innerHTML = "❌ Incorrect. Regardez l'indice ou la correction.";
+                feed.innerHTML = "❌ Incorrect. Regardez l'indice ou la correction ci-dessus.";
+                feed.style.color = "#c0392b";
+            }
+        }
+
+        function verifier2() {
+            let val = document.getElementById('rep2').value.trim();
+            let feed = document.getElementById('feedback2');
+            if (val === "2") {
+                feed.innerHTML = "🎉 Correct ! La dérivée est \\(f'(x) = 6x^2 - 4\\).";
+                feed.style.color = "#27ae60";
+                if (window.MathJax) {
+                    MathJax.typeset();
+                }
+            } else {
+                feed.innerHTML = "❌ Incorrect. Pensez à dériver chaque terme séparément.";
                 feed.style.color = "#c0392b";
             }
         }
