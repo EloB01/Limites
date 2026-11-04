@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercices de Mathématiques</title>
     
-    <!-- Police Source Sans Pro -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- MathJax -->
     <script>
         window.MathJax = {
             tex: { inlineMath: [['\\(', '\\)']] }
@@ -30,14 +28,6 @@
 
         p, label, span, div {
             color: #8C8B82 !important;
-        }
-
-        h1, h3 {
-            color: #8DA6D6 !important;
-        }
-
-        h1 {
-            text-align: center;
         }
 
         .exercice {
@@ -60,11 +50,7 @@
             margin-top: 10px;
         }
 
-        button:hover {
-            background-color: #728ec4 !important;
-        }
-
-        input[type="text"], input[type="number"] {
+        input[type="text"] {
             padding: 8px;
             font-size: 16px;
             width: 150px;
@@ -96,11 +82,13 @@
 </head>
 <body>
 
-    <h1>Entraînement de Mathématiques</h1>
+    <!-- Titre principal avec couleur forcée en inline -->
+    <h1 style="color: #8DA6D6 !important; text-align: center;">Entraînement de Mathématiques</h1>
     <p style="text-align: center;">Résolvez les exercices ci-dessous et validez vos réponses.</p>
 
     <div class="exercice">
-        <h3>Exercice 1 : Équation du premier degré</h3>
+        <!-- Sous-titre avec couleur forcée en inline -->
+        <h3 style="color: #8DA6D6 !important;">Exercice 1 : Équation du premier degré</h3>
         <p>Résolvez l'équation suivante : \(3x - 5 = 10\)</p>
         <p>Donnez la valeur de \(x\) :</p>
         <input type="text" id="rep1" placeholder="Votre réponse">
