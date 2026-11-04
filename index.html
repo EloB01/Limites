@@ -2,524 +2,725 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon espace maths</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon espace maths</title>
 
-    <!-- Police -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --purple: #5B57A2;
-            --background: #FFFFFF;
-            --exercise: #E8E2DE;
-            --check: #C6C0B4;
-            --text: #8C8B82;
-            --dark: #55544E;
-        }
+<style>
+:root {
+    --purple: #5B57A2;
+    --background: #FFFFFF;
+    --exercise: #E8E2DE;
+    --check: #C6C0B4;
+    --text: #8C8B82;
+    --dark: #55544E;
+}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        body {
-            font-family: 'Source Sans 3', sans-serif;
-            background: var(--background);
-            color: var(--text);
-            line-height: 1.6;
-        }
+body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
 
-        /* NAVIGATION */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 8%;
+    border-bottom: 1px solid #F0EEEC;
+    flex-wrap: wrap;
+    gap: 15px;
+}
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 22px 8%;
-            border-bottom: 1px solid #F0EEEC;
-        }
+.logo {
+    color: var(--purple);
+    font-size: 23px;
+    font-weight: 700;
+}
 
-        .logo {
-            color: var(--purple);
-            font-size: 23px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
+nav {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
 
-        nav {
-            display: flex;
-            gap: 30px;
-        }
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    cursor: pointer;
+}
 
-        nav a {
-            color: var(--text);
-            text-decoration: none;
-            font-size: 15px;
-        }
+nav a:hover {
+    color: var(--purple);
+}
 
-        nav a:hover {
-            color: var(--purple);
-        }
+.student {
+    color: var(--purple);
+    font-weight: 600;
+}
 
-        .student {
-            color: var(--purple);
-            font-weight: 600;
-        }
+main {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 25px;
+}
 
-        /* CONTENU */
+h1, h2, h3 {
+    color: var(--purple);
+    font-weight: 600;
+}
 
-        main {
-            max-width: 1100px;
-            margin: 55px auto;
-            padding: 0 25px;
-        }
+h1 {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
 
-        h1, h2, h3 {
-            color: var(--purple);
-            font-weight: 600;
-        }
+h2 {
+    font-size: 26px;
+    margin-bottom: 12px;
+}
 
-        h1 {
-            font-size: 36px;
-            margin-bottom: 8px;
-        }
+h3 {
+    font-size: 19px;
+    margin-bottom: 8px;
+}
 
-        h2 {
-            font-size: 25px;
-            margin-bottom: 20px;
-        }
+section {
+    margin-bottom: 55px;
+}
 
-        h3 {
-            font-size: 19px;
-            margin-bottom: 10px;
-        }
+.intro {
+    margin-bottom: 35px;
+}
 
-        .intro {
-            margin-bottom: 40px;
-        }
+.intro p {
+    font-size: 17px;
+}
 
-        .intro p {
-            font-size: 17px;
-        }
+/* PROGRESSION */
 
-        /* PROGRESSION */
+.progress-card {
+    background: #F7F5F3;
+    border-radius: 14px;
+    padding: 23px;
+    margin-bottom: 45px;
+}
 
-        .progress-card {
-            background: #F7F5F3;
-            border-radius: 14px;
-            padding: 25px;
-            margin-bottom: 55px;
-        }
+.progress-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
 
-        .progress-top {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 12px;
-        }
+.progress-bar {
+    height: 10px;
+    background: #E5E1DD;
+    border-radius: 20px;
+    overflow: hidden;
+}
 
-        .progress-bar {
-            height: 10px;
-            background: #E5E1DD;
-            border-radius: 20px;
-            overflow: hidden;
-        }
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--purple);
+    transition: width .3s;
+}
 
-        .progress-fill {
-            height: 100%;
-            width: 45%;
-            background: var(--purple);
-            border-radius: 20px;
-        }
+/* CARTES CHAPITRES */
 
-        /* CHAPITRES */
+.chapters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 22px;
+}
 
-        section {
-            margin-bottom: 55px;
-        }
+.chapter {
+    text-align: left;
+    border: 1px solid #EAE7E4;
+    border-radius: 12px;
+    padding: 23px;
+    background: white;
+    cursor: pointer;
+    transition: .2s;
+}
 
-        .chapters {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-        }
+.chapter:hover {
+    border-color: var(--purple);
+    transform: translateY(-3px);
+    background: #FAF9FB;
+}
 
-        .chapter {
-            border: 1px solid #EAE7E4;
-            border-radius: 12px;
-            padding: 22px;
-            transition: 0.2s;
-        }
+.chapter-number {
+    font-size: 13px;
+    margin-bottom: 9px;
+}
 
-        .chapter:hover {
-            border-color: var(--purple);
-            transform: translateY(-3px);
-        }
+.chapter h3 {
+    margin-bottom: 8px;
+}
 
-        .chapter-number {
-            font-size: 13px;
-            margin-bottom: 10px;
-            color: var(--text);
-        }
+.chapter p {
+    font-size: 14px;
+    color: var(--text);
+}
 
-        .chapter p {
-            font-size: 14px;
-        }
+.arrow {
+    display: block;
+    text-align: right;
+    color: var(--purple);
+    margin-top: 12px;
+    font-size: 20px;
+}
 
-        /* OBJECTIFS */
+/* PAGES CHAPITRES */
 
-        .objectives {
-            background: #F8F7F5;
-            padding: 25px;
-            border-radius: 12px;
-        }
+.hidden {
+    display: none !important;
+}
 
-        .objective {
-            display: flex;
-            align-items: center;
-            gap: 13px;
-            padding: 12px 0;
-            border-bottom: 1px solid #EAE7E4;
-        }
+.back-button {
+    background: none;
+    color: var(--purple);
+    border: 1px solid var(--check);
+    padding: 8px 16px;
+    margin-bottom: 25px;
+}
 
-        .objective:last-child {
-            border-bottom: none;
-        }
+.chapter-intro {
+    background: #F7F5F3;
+    padding: 25px;
+    border-radius: 12px;
+    margin: 20px 0 30px;
+}
 
-        .objective input {
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            border: 1px solid var(--check);
-            border-radius: 5px;
-            cursor: pointer;
-            flex-shrink: 0;
-        }
+.objectives {
+    background: #F8F7F5;
+    padding: 22px;
+    border-radius: 12px;
+    margin-bottom: 35px;
+}
 
-        .objective input:checked {
-            background: var(--check);
-            box-shadow: inset 0 0 0 4px white;
-        }
+.objective {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #EAE7E4;
+}
 
-        .objective input:checked + label {
-            text-decoration: line-through;
-            opacity: 0.6;
-        }
+.objective:last-child {
+    border-bottom: none;
+}
 
-        .objective label {
-            cursor: pointer;
-        }
+.objective input {
+    appearance: none;
+    width: 19px;
+    height: 19px;
+    border: 1px solid var(--check);
+    border-radius: 5px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
 
-        /* EXERCICES */
+.objective input:checked {
+    background: var(--check);
+    box-shadow: inset 0 0 0 4px white;
+}
 
-        .exercise {
-            background: var(--exercise);
-            border-radius: 14px;
-            padding: 28px;
-            margin-bottom: 20px;
-        }
+.objective input:checked + label {
+    text-decoration: line-through;
+    opacity: .6;
+}
 
-        .exercise p {
-            margin: 12px 0;
-        }
+.objective label {
+    cursor: pointer;
+}
 
-        .exercise input[type="number"] {
-            width: 150px;
-            padding: 11px;
-            border: 1px solid #D0C9C3;
-            border-radius: 7px;
-            font-family: inherit;
-            font-size: 16px;
-            background: white;
-            color: var(--dark);
-        }
+/* EXERCICES */
 
-        button {
-            background: var(--purple);
-            color: white;
-            border: none;
-            padding: 11px 22px;
-            border-radius: 7px;
-            font-family: inherit;
-            font-size: 15px;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: 0.2s;
-        }
+.exercise {
+    background: var(--exercise);
+    border-radius: 13px;
+    padding: 25px;
+    margin: 18px 0;
+}
 
-        button:hover {
-            opacity: 0.85;
-        }
+.exercise p {
+    margin: 10px 0;
+}
 
-        .feedback {
-            margin-top: 12px;
-            font-weight: 600;
-        }
+.exercise input[type="number"] {
+    width: 180px;
+    padding: 10px;
+    border: 1px solid #D0C9C3;
+    border-radius: 7px;
+    background: white;
+    font-family: inherit;
+    font-size: 16px;
+    color: var(--dark);
+}
 
-        /* PIED DE PAGE */
+button {
+    background: var(--purple);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+}
 
-        footer {
-            text-align: center;
-            border-top: 1px solid #F0EEEC;
-            padding: 25px;
-            font-size: 14px;
-        }
+button:hover {
+    opacity: .85;
+}
 
-        /* RESPONSIVE */
+.feedback {
+    margin-top: 12px;
+    font-weight: 600;
+}
 
-        @media (max-width: 750px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
+.success {
+    color: #47785C;
+}
 
-            nav {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
-            }
+.error {
+    color: #A45D58;
+}
 
-            .chapters {
-                grid-template-columns: 1fr;
-            }
+/* RÉVISIONS MÉLANGÉES */
 
-            h1 {
-                font-size: 29px;
-            }
-        }
-    </style>
+.mixed-section {
+    margin-top: 65px;
+    border-top: 1px solid #EAE7E4;
+    padding-top: 40px;
+}
+
+.mixed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.mixed-label {
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: var(--text);
+    text-transform: uppercase;
+}
+
+footer {
+    text-align: center;
+    border-top: 1px solid #F0EEEC;
+    padding: 25px;
+    font-size: 14px;
+}
+
+@media(max-width: 750px) {
+    header {
+        flex-direction: column;
+    }
+
+    .chapters {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 29px;
+    }
+
+    .mixed-header {
+        align-items: flex-start;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
-    <header>
-        <div class="logo">MATHÉMATIQUES.</div>
+<header>
+    <div class="logo">MATHÉMATIQUES.</div>
 
-        <nav>
-            <a href="#cours">Mon cours</a>
-            <a href="#objectifs">Mes objectifs</a>
-            <a href="#exercices">Mes exercices</a>
-        </nav>
+    <nav>
+        <a onclick="showHome()">Accueil</a>
+        <a href="#cours" onclick="showHome()">Mes chapitres</a>
+        <a href="#revisions">Révisions</a>
+    </nav>
 
-        <div class="student">Espace étudiant</div>
-    </header>
+    <div class="student">Espace étudiant</div>
+</header>
 
-    <main>
+<main>
 
-        <!-- ACCUEIL -->
-        <div class="intro">
-            <h1>Bonjour, Camille !</h1>
-            <p>Bienvenue dans ton espace d'apprentissage.
-            Prends le temps de comprendre, de pratiquer et de progresser.</p>
+<!-- ACCUEIL -->
+
+<div id="home">
+
+    <div class="intro">
+        <h1>Bonjour, Camille !</h1>
+        <p>Bienvenue dans ton espace d'apprentissage.
+        Apprends, entraîne-toi et progresse à ton rythme.</p>
+    </div>
+
+    <div class="progress-card">
+        <div class="progress-top">
+            <strong>Ma progression</strong>
+            <strong id="progress-value">0 %</strong>
         </div>
 
-        <!-- PROGRESSION -->
-        <div class="progress-card">
-            <div class="progress-top">
-                <strong>Ma progression</strong>
-                <strong id="progress-value">45 %</strong>
-            </div>
-
-            <div class="progress-bar">
-                <div class="progress-fill" id="progress-fill"></div>
-            </div>
-
-            <p style="margin-top: 12px; font-size: 14px;">
-                Chaque étape compte. Continue tes efforts !
-            </p>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
         </div>
 
-        <!-- COURS -->
-        <section id="cours">
-            <h2>Mon cours</h2>
-            <p style="margin-bottom: 20px;">
-                Retrouve ici les différentes notions abordées.
-            </p>
+        <p style="margin-top:10px;font-size:14px;">
+            Continue tes efforts, chaque notion compte !
+        </p>
+    </div>
 
-            <div class="chapters">
+    <section id="cours">
+        <h2>Mes chapitres</h2>
+        <p>Choisis un chapitre pour accéder à son contenu et à ses exercices.</p>
 
-                <div class="chapter">
-                    <div class="chapter-number">CHAPITRE 01</div>
-                    <h3>Les fractions</h3>
-                    <p>Comprendre, simplifier et calculer avec les fractions.</p>
-                </div>
+        <div class="chapters">
 
-                <div class="chapter">
-                    <div class="chapter-number">CHAPITRE 02</div>
-                    <h3>Les équations</h3>
-                    <p>Résoudre une équation et comprendre ses étapes.</p>
-                </div>
+            <button class="chapter" onclick="openChapter('fractions')">
+                <div class="chapter-number">CHAPITRE 01</div>
+                <h3>Les fractions</h3>
+                <p>Comprendre, simplifier et calculer avec les fractions.</p>
+                <span class="arrow">→</span>
+            </button>
 
-                <div class="chapter">
-                    <div class="chapter-number">CHAPITRE 03</div>
-                    <h3>Les fonctions</h3>
-                    <p>Découvrir les fonctions et leurs représentations.</p>
-                </div>
+            <button class="chapter" onclick="openChapter('equations')">
+                <div class="chapter-number">CHAPITRE 02</div>
+                <h3>Les équations</h3>
+                <p>Résoudre une équation et comprendre ses étapes.</p>
+                <span class="arrow">→</span>
+            </button>
 
-            </div>
-        </section>
+            <button class="chapter" onclick="openChapter('fonctions')">
+                <div class="chapter-number">CHAPITRE 03</div>
+                <h3>Les fonctions</h3>
+                <p>Découvrir les fonctions et leurs représentations.</p>
+                <span class="arrow">→</span>
+            </button>
 
-        <!-- OBJECTIFS -->
-        <section id="objectifs">
-            <h2>Ai-je bien compris ?</h2>
-            <p style="margin-bottom: 20px;">
-                Coche les notions que tu maîtrises.
-            </p>
+        </div>
+    </section>
+
+</div>
+
+<!-- CONTENU DES CHAPITRES -->
+
+<div id="chapter-page" class="hidden">
+
+    <button class="back-button" onclick="showHome()">
+        ← Retour aux chapitres
+    </button>
+
+    <div id="chapter-content"></div>
+
+</div>
+
+<!-- RÉVISIONS MÉLANGÉES -->
+
+<section class="mixed-section" id="revisions">
+
+    <div class="mixed-label">Pour aller plus loin</div>
+
+    <div class="mixed-header">
+        <div>
+            <h2>Je révise tout !</h2>
+            <p>Des exercices mélangés pour tester tes connaissances sur l'ensemble de la matière.</p>
+        </div>
+
+        <button onclick="generateMixedExercises()">
+            ↻ Nouveaux exercices
+        </button>
+    </div>
+
+    <div id="mixed-exercises"></div>
+
+</section>
+
+</main>
+
+<footer>
+    Mon espace mathématiques · Apprendre à son rythme.
+</footer>
+
+<script>
+
+// DONNÉES DES CHAPITRES ET EXERCICES
+
+const chapters = {
+
+    fractions: {
+        title: "Les fractions",
+        number: "CHAPITRE 01",
+        description: "Une fraction représente une partie d'un tout. Dans ce chapitre, tu vas apprendre à les comprendre, les simplifier et effectuer des opérations.",
+        objectives: [
+            "Je sais identifier le numérateur et le dénominateur.",
+            "Je sais simplifier une fraction.",
+            "Je sais additionner deux fractions.",
+            "Je sais multiplier deux fractions."
+        ],
+        exercises: [
+            {
+                question: "Simplifie la fraction 6/12. Quel est son numérateur ?",
+                answer: 1
+            },
+            {
+                question: "Combien vaut 1/2 + 1/2 ? (Donne le résultat sous forme entière.)",
+                answer: 1
+            },
+            {
+                question: "Combien vaut 2/3 × 3/4 ? (Donne le numérateur de la fraction simplifiée.)",
+                answer: 1
+            }
+        ]
+    },
+
+    equations: {
+        title: "Les équations",
+        number: "CHAPITRE 02",
+        description: "Une équation est une égalité qui contient une inconnue. Tu vas apprendre à isoler cette inconnue pour trouver sa valeur.",
+        objectives: [
+            "Je comprends ce qu'est une inconnue.",
+            "Je sais effectuer la même opération des deux côtés.",
+            "Je sais résoudre une équation simple.",
+            "Je sais vérifier une solution."
+        ],
+        exercises: [
+            {
+                question: "Résous : 2x + 4 = 10. Quelle est la valeur de x ?",
+                answer: 3
+            },
+            {
+                question: "Résous : x + 7 = 12. Quelle est la valeur de x ?",
+                answer: 5
+            },
+            {
+                question: "Résous : 3x = 21. Quelle est la valeur de x ?",
+                answer: 7
+            }
+        ]
+    },
+
+    fonctions: {
+        title: "Les fonctions",
+        number: "CHAPITRE 03",
+        description: "Une fonction associe un nombre à un autre nombre. Tu vas apprendre à calculer une image et à comprendre une représentation graphique.",
+        objectives: [
+            "Je comprends la notion de fonction.",
+            "Je sais calculer une image.",
+            "Je sais utiliser une formule.",
+            "Je sais lire un graphique."
+        ],
+        exercises: [
+            {
+                question: "Soit f(x) = 2x + 1. Combien vaut f(3) ?",
+                answer: 7
+            },
+            {
+                question: "Soit f(x) = 3x. Combien vaut f(4) ?",
+                answer: 12
+            },
+            {
+                question: "Soit f(x) = x + 5. Combien vaut f(2) ?",
+                answer: 7
+            }
+        ]
+    }
+
+};
+
+// NAVIGATION
+
+function showHome() {
+    document.getElementById("home").classList.remove("hidden");
+    document.getElementById("chapter-page").classList.add("hidden");
+    window.scrollTo({top: 0, behavior: "smooth"});
+}
+
+function openChapter(id) {
+
+    const chapter = chapters[id];
+
+    document.getElementById("home").classList.add("hidden");
+    document.getElementById("chapter-page").classList.remove("hidden");
+
+    let html = `
+        <div class="chapter-intro">
+            <div class="chapter-number">${chapter.number}</div>
+            <h1>${chapter.title}</h1>
+            <p>${chapter.description}</p>
+        </div>
+
+        <section>
+            <h2>Mes objectifs</h2>
+            <p>Avant de terminer ce chapitre, vérifie que tu maîtrises ces notions.</p>
 
             <div class="objectives">
+    `;
 
-                <div class="objective">
-                    <input type="checkbox" class="goal">
-                    <label>Je sais simplifier une fraction.</label>
-                </div>
+    chapter.objectives.forEach((objective, index) => {
+        html += `
+            <div class="objective">
+                <input type="checkbox" class="goal" id="${id}-goal-${index}">
+                <label for="${id}-goal-${index}">${objective}</label>
+            </div>
+        `;
+    });
 
-                <div class="objective">
-                    <input type="checkbox" class="goal">
-                    <label>Je sais additionner deux fractions.</label>
-                </div>
-
-                <div class="objective">
-                    <input type="checkbox" class="goal">
-                    <label>Je comprends le principe d'une équation.</label>
-                </div>
-
-                <div class="objective">
-                    <input type="checkbox" class="goal">
-                    <label>Je sais résoudre une équation simple.</label>
-                </div>
-
-                <div class="objective">
-                    <input type="checkbox" class="goal">
-                    <label>Je sais représenter une fonction.</label>
-                </div>
-
+    html += `
             </div>
         </section>
 
-        <!-- EXERCICES -->
-        <section id="exercices">
+        <section>
             <h2>Je m'entraîne</h2>
-            <p style="margin-bottom: 20px;">
-                Mets tes connaissances en pratique !
-            </p>
+            <p>Résous les exercices suivants pour vérifier ta compréhension.</p>
+    `;
 
-            <div class="exercise">
-                <h3>Exercice 1 — Les fractions</h3>
+    chapter.exercises.forEach((exercise, index) => {
+        html += createExercise(
+            exercise,
+            "chapter-" + id + "-" + index,
+            chapter.title
+        );
+    });
 
-                <p>
-                    Simplifie la fraction suivante :
-                    <strong>6 / 12</strong>
-                </p>
+    html += `</section>`;
 
-                <p>Quelle est la valeur du numérateur de la fraction simplifiée ?</p>
+    document.getElementById("chapter-content").innerHTML = html;
 
-                <input type="number" id="answer1" placeholder="Ta réponse">
+    document.querySelectorAll(".goal").forEach(goal => {
+        goal.addEventListener("change", updateProgress);
+    });
 
-                <br>
+    window.scrollTo({top: 0, behavior: "smooth"});
+}
 
-                <button onclick="checkAnswer(1, 1)">
-                    Vérifier ma réponse
-                </button>
+// CRÉATION D'UN EXERCICE
 
-                <div class="feedback" id="feedback1"></div>
-            </div>
+function createExercise(exercise, id, chapterName) {
 
-            <div class="exercise">
-                <h3>Exercice 2 — Les équations</h3>
+    return `
+        <div class="exercise">
+            <div class="chapter-number">${chapterName}</div>
+            <h3>Exercice</h3>
+            <p>${exercise.question}</p>
 
-                <p>Résous l'équation suivante :</p>
+            <input type="number" id="${id}-answer" placeholder="Ta réponse">
 
-                <p><strong>2x + 4 = 10</strong></p>
+            <br>
 
-                <p>Quelle est la valeur de x ?</p>
+            <button onclick="checkAnswer('${id}', ${exercise.answer})">
+                Vérifier ma réponse
+            </button>
 
-                <input type="number" id="answer2" placeholder="Ta réponse">
+            <div class="feedback" id="${id}-feedback"></div>
+        </div>
+    `;
+}
 
-                <br>
+// CORRECTION DES EXERCICES
 
-                <button onclick="checkAnswer(2, 3)">
-                    Vérifier ma réponse
-                </button>
+function checkAnswer(id, correctAnswer) {
 
-                <div class="feedback" id="feedback2"></div>
-            </div>
+    const input = document.getElementById(id + "-answer");
+    const feedback = document.getElementById(id + "-feedback");
 
-            <div class="exercise">
-                <h3>Exercice 3 — Les fonctions</h3>
+    if (input.value.trim() === "") {
+        feedback.textContent = "Entre une réponse avant de vérifier.";
+        feedback.className = "feedback error";
+        return;
+    }
 
-                <p>On considère la fonction f(x) = 2x + 1.</p>
+    if (Number(input.value) === correctAnswer) {
+        feedback.textContent = "Bravo ! C'est la bonne réponse.";
+        feedback.className = "feedback success";
+    } else {
+        feedback.textContent = "Ce n'est pas encore ça. Essaie à nouveau !";
+        feedback.className = "feedback error";
+    }
+}
 
-                <p>Quelle est la valeur de f(3) ?</p>
+// PROGRESSION
 
-                <input type="number" id="answer3" placeholder="Ta réponse">
+function updateProgress() {
 
-                <br>
+    const goals = document.querySelectorAll(".goal");
+    const checked = document.querySelectorAll(".goal:checked").length;
 
-                <button onclick="checkAnswer(3, 7)">
-                    Vérifier ma réponse
-                </button>
+    const percentage = goals.length
+        ? Math.round((checked / goals.length) * 100)
+        : 0;
 
-                <div class="feedback" id="feedback3"></div>
-            </div>
+    document.getElementById("progress-value").textContent =
+        percentage + " %";
 
-        </section>
+    document.getElementById("progress-fill").style.width =
+        percentage + "%";
+}
 
-    </main>
+// BASE D'EXERCICES POUR LES RÉVISIONS
 
-    <footer>
-        Mon espace mathématiques · Apprendre à son rythme.
-    </footer>
+const allExercises = [];
 
-    <script>
-
-        // Vérification des réponses
-
-        function checkAnswer(exercise, correctAnswer) {
-
-            const input = document.getElementById("answer" + exercise);
-            const feedback = document.getElementById("feedback" + exercise);
-
-            if (input.value.trim() === "") {
-                feedback.textContent = "Entre une réponse avant de vérifier.";
-                feedback.style.color = "#8C8B82";
-                return;
-            }
-
-            if (Number(input.value) === correctAnswer) {
-                feedback.textContent = "Bravo ! C'est la bonne réponse.";
-                feedback.style.color = "#47785C";
-            } else {
-                feedback.textContent = "Ce n'est pas encore ça. Essaie à nouveau !";
-                feedback.style.color = "#A45D58";
-            }
-        }
-
-        // Calcul automatique de la progression
-
-        const goals = document.querySelectorAll(".goal");
-
-        function updateProgress() {
-
-            const checked = document.querySelectorAll(".goal:checked").length;
-            const percentage = Math.round((checked / goals.length) * 100);
-
-            document.getElementById("progress-value").textContent =
-                percentage + " %";
-
-            document.getElementById("progress-fill").style.width =
-                percentage + "%";
-        }
-
-        goals.forEach(goal => {
-            goal.addEventListener("change", updateProgress);
+Object.keys(chapters).forEach(id => {
+    chapters[id].exercises.forEach(exercise => {
+        allExercises.push({
+            ...exercise,
+            chapter: chapters[id].title
         });
+    });
+});
 
-    </script>
+// MÉLANGE ALÉATOIRE
+
+function generateMixedExercises() {
+
+    const shuffled = [...allExercises].sort(
+        () => Math.random() - 0.5
+    );
+
+    const selected = shuffled.slice(0, 5);
+
+    const container = document.getElementById("mixed-exercises");
+
+    container.innerHTML = selected.map((exercise, index) => {
+
+        return createExercise(
+            exercise,
+            "mixed-" + index,
+            exercise.chapter
+        );
+
+    }).join("");
+
+}
+
+// PREMIÈRE SÉRIE DE RÉVISIONS
+
+generateMixedExercises();
+
+</script>
 
 </body>
 </html>
