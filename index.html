@@ -4,7 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mon espace maths</title>
+
+<title>Mon espace mathématiques</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,12 +19,17 @@
     --check: #C6C0B4;
     --text: #8C8B82;
     --dark: #55544E;
+    --light: #F7F5F3;
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -96,9 +102,19 @@ h3 {
     margin-bottom: 8px;
 }
 
+p {
+    margin-bottom: 8px;
+}
+
 section {
     margin-bottom: 55px;
 }
+
+.hidden {
+    display: none !important;
+}
+
+/* ACCUEIL */
 
 .intro {
     margin-bottom: 35px;
@@ -111,7 +127,7 @@ section {
 /* PROGRESSION */
 
 .progress-card {
-    background: #F7F5F3;
+    background: var(--light);
     border-radius: 14px;
     padding: 23px;
     margin-bottom: 45px;
@@ -137,7 +153,7 @@ section {
     transition: width .3s;
 }
 
-/* CARTES CHAPITRES */
+/* CHAPITRES */
 
 .chapters {
     display: grid;
@@ -147,6 +163,8 @@ section {
 }
 
 .chapter {
+    display: block;
+    width: 100%;
     text-align: left;
     border: 1px solid #EAE7E4;
     border-radius: 12px;
@@ -165,6 +183,8 @@ section {
 .chapter-number {
     font-size: 13px;
     margin-bottom: 9px;
+    color: var(--text);
+    letter-spacing: .5px;
 }
 
 .chapter h3 {
@@ -186,10 +206,6 @@ section {
 
 /* PAGES CHAPITRES */
 
-.hidden {
-    display: none !important;
-}
-
 .back-button {
     background: none;
     color: var(--purple);
@@ -199,7 +215,7 @@ section {
 }
 
 .chapter-intro {
-    background: #F7F5F3;
+    background: var(--light);
     padding: 25px;
     border-radius: 12px;
     margin: 20px 0 30px;
@@ -209,7 +225,7 @@ section {
     background: #F8F7F5;
     padding: 22px;
     border-radius: 12px;
-    margin-bottom: 35px;
+    margin: 20px 0 35px;
 }
 
 .objective {
@@ -282,6 +298,7 @@ button {
     font-size: 15px;
     cursor: pointer;
     margin-top: 10px;
+    transition: .2s;
 }
 
 button:hover {
@@ -301,7 +318,54 @@ button:hover {
     color: #A45D58;
 }
 
-/* RÉVISIONS MÉLANGÉES */
+/* GEOGEBRA */
+
+.geogebra-section {
+    margin-top: 45px;
+}
+
+.geogebra-intro {
+    margin-bottom: 20px;
+}
+
+.geogebra-frame {
+    width: 100%;
+    height: 560px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 0;
+    border: 1px solid #DDD7D2;
+}
+
+.geogebra-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.geogebra-tasks {
+    background: #F8F7F5;
+    border-radius: 12px;
+    padding: 23px;
+    margin-top: 25px;
+}
+
+.geogebra-tasks li {
+    margin: 10px 0 10px 22px;
+}
+
+.geogebra-link {
+    color: var(--purple);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.geogebra-link:hover {
+    text-decoration: underline;
+}
+
+/* RÉVISIONS */
 
 .mixed-section {
     margin-top: 65px;
@@ -325,6 +389,14 @@ button:hover {
     text-transform: uppercase;
 }
 
+.mixed-tag {
+    color: var(--purple);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* PIED DE PAGE */
+
 footer {
     text-align: center;
     border-top: 1px solid #F0EEEC;
@@ -332,9 +404,16 @@ footer {
     font-size: 14px;
 }
 
+/* RESPONSIVE */
+
 @media(max-width: 750px) {
     header {
         flex-direction: column;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 15px;
     }
 
     .chapters {
@@ -343,6 +422,10 @@ footer {
 
     h1 {
         font-size: 29px;
+    }
+
+    .geogebra-frame {
+        height: 480px;
     }
 
     .mixed-header {
@@ -355,6 +438,7 @@ footer {
 <body>
 
 <header>
+
     <div class="logo">MATHÉMATIQUES.</div>
 
     <nav>
@@ -364,23 +448,30 @@ footer {
     </nav>
 
     <div class="student">Espace étudiant</div>
+
 </header>
 
 <main>
 
-<!-- ACCUEIL -->
+<!-- PAGE D'ACCUEIL -->
 
 <div id="home">
 
     <div class="intro">
         <h1>Bonjour, Camille !</h1>
-        <p>Bienvenue dans ton espace d'apprentissage.
-        Apprends, entraîne-toi et progresse à ton rythme.</p>
+
+        <p>
+            Bienvenue dans ton espace d'apprentissage.
+            Apprends, entraîne-toi et progresse à ton rythme.
+        </p>
     </div>
 
+    <!-- PROGRESSION GLOBALE -->
+
     <div class="progress-card">
+
         <div class="progress-top">
-            <strong>Ma progression</strong>
+            <strong>Ma progression globale</strong>
             <strong id="progress-value">0 %</strong>
         </div>
 
@@ -389,43 +480,73 @@ footer {
         </div>
 
         <p style="margin-top:10px;font-size:14px;">
-            Continue tes efforts, chaque notion compte !
+            Chaque notion maîtrisée te rapproche de ton objectif !
         </p>
+
     </div>
 
+    <!-- CHAPITRES -->
+
     <section id="cours">
+
         <h2>Mes chapitres</h2>
-        <p>Choisis un chapitre pour accéder à son contenu et à ses exercices.</p>
+
+        <p>
+            Choisis un chapitre pour accéder à son contenu,
+            ses objectifs et ses exercices.
+        </p>
 
         <div class="chapters">
 
             <button class="chapter" onclick="openChapter('fractions')">
+
                 <div class="chapter-number">CHAPITRE 01</div>
+
                 <h3>Les fractions</h3>
-                <p>Comprendre, simplifier et calculer avec les fractions.</p>
+
+                <p>
+                    Comprendre, simplifier et calculer avec les fractions.
+                </p>
+
                 <span class="arrow">→</span>
+
             </button>
 
             <button class="chapter" onclick="openChapter('equations')">
+
                 <div class="chapter-number">CHAPITRE 02</div>
+
                 <h3>Les équations</h3>
-                <p>Résoudre une équation et comprendre ses étapes.</p>
+
+                <p>
+                    Résoudre une équation et comprendre ses étapes.
+                </p>
+
                 <span class="arrow">→</span>
+
             </button>
 
             <button class="chapter" onclick="openChapter('fonctions')">
+
                 <div class="chapter-number">CHAPITRE 03</div>
+
                 <h3>Les fonctions</h3>
-                <p>Découvrir les fonctions et leurs représentations.</p>
+
+                <p>
+                    Découvrir les fonctions et leurs représentations graphiques.
+                </p>
+
                 <span class="arrow">→</span>
+
             </button>
 
         </div>
+
     </section>
 
 </div>
 
-<!-- CONTENU DES CHAPITRES -->
+<!-- PAGE DES CHAPITRES -->
 
 <div id="chapter-page" class="hidden">
 
@@ -437,21 +558,27 @@ footer {
 
 </div>
 
-<!-- RÉVISIONS MÉLANGÉES -->
+<!-- RÉVISIONS GÉNÉRALES -->
 
 <section class="mixed-section" id="revisions">
 
     <div class="mixed-label">Pour aller plus loin</div>
 
     <div class="mixed-header">
+
         <div>
             <h2>Je révise tout !</h2>
-            <p>Des exercices mélangés pour tester tes connaissances sur l'ensemble de la matière.</p>
+
+            <p>
+                Des exercices mélangés pour tester tes connaissances
+                sur l'ensemble de la matière.
+            </p>
         </div>
 
         <button onclick="generateMixedExercises()">
             ↻ Nouveaux exercices
         </button>
+
     </div>
 
     <div id="mixed-exercises"></div>
@@ -466,31 +593,43 @@ footer {
 
 <script>
 
-// DONNÉES DES CHAPITRES ET EXERCICES
+// ======================================
+// 1. DONNÉES DES CHAPITRES
+// ======================================
 
 const chapters = {
 
     fractions: {
         title: "Les fractions",
         number: "CHAPITRE 01",
-        description: "Une fraction représente une partie d'un tout. Dans ce chapitre, tu vas apprendre à les comprendre, les simplifier et effectuer des opérations.",
+
+        description:
+            "Une fraction représente une partie d'un tout. " +
+            "Dans ce chapitre, tu vas apprendre à les comprendre, " +
+            "les simplifier et effectuer des opérations.",
+
         objectives: [
             "Je sais identifier le numérateur et le dénominateur.",
             "Je sais simplifier une fraction.",
             "Je sais additionner deux fractions.",
             "Je sais multiplier deux fractions."
         ],
+
         exercises: [
             {
-                question: "Simplifie la fraction 6/12. Quel est son numérateur ?",
+                question:
+                    "Simplifie la fraction 6/12. Quel est son numérateur ?",
                 answer: 1
             },
             {
-                question: "Combien vaut 1/2 + 1/2 ? (Donne le résultat sous forme entière.)",
+                question:
+                    "Combien vaut 1/2 + 1/2 ? (Donne le résultat sous forme entière.)",
                 answer: 1
             },
             {
-                question: "Combien vaut 2/3 × 3/4 ? (Donne le numérateur de la fraction simplifiée.)",
+                question:
+                    "Combien vaut 2/3 × 3/4 ? " +
+                    "(Donne le numérateur de la fraction simplifiée.)",
                 answer: 1
             }
         ]
@@ -499,24 +638,32 @@ const chapters = {
     equations: {
         title: "Les équations",
         number: "CHAPITRE 02",
-        description: "Une équation est une égalité qui contient une inconnue. Tu vas apprendre à isoler cette inconnue pour trouver sa valeur.",
+
+        description:
+            "Une équation est une égalité qui contient une inconnue. " +
+            "Tu vas apprendre à isoler cette inconnue pour trouver sa valeur.",
+
         objectives: [
             "Je comprends ce qu'est une inconnue.",
             "Je sais effectuer la même opération des deux côtés.",
             "Je sais résoudre une équation simple.",
             "Je sais vérifier une solution."
         ],
+
         exercises: [
             {
-                question: "Résous : 2x + 4 = 10. Quelle est la valeur de x ?",
+                question:
+                    "Résous : 2x + 4 = 10. Quelle est la valeur de x ?",
                 answer: 3
             },
             {
-                question: "Résous : x + 7 = 12. Quelle est la valeur de x ?",
+                question:
+                    "Résous : x + 7 = 12. Quelle est la valeur de x ?",
                 answer: 5
             },
             {
-                question: "Résous : 3x = 21. Quelle est la valeur de x ?",
+                question:
+                    "Résous : 3x = 21. Quelle est la valeur de x ?",
                 answer: 7
             }
         ]
@@ -525,24 +672,34 @@ const chapters = {
     fonctions: {
         title: "Les fonctions",
         number: "CHAPITRE 03",
-        description: "Une fonction associe un nombre à un autre nombre. Tu vas apprendre à calculer une image et à comprendre une représentation graphique.",
+
+        description:
+            "Une fonction associe un nombre à un autre nombre. " +
+            "Explore les graphiques, teste différentes expressions " +
+            "et découvre les propriétés des fonctions.",
+
         objectives: [
             "Je comprends la notion de fonction.",
             "Je sais calculer une image.",
-            "Je sais utiliser une formule.",
-            "Je sais lire un graphique."
+            "Je sais identifier un coefficient directeur.",
+            "Je sais lire un graphique.",
+            "Je sais interpréter une représentation graphique."
         ],
+
         exercises: [
             {
-                question: "Soit f(x) = 2x + 1. Combien vaut f(3) ?",
+                question:
+                    "Soit f(x) = 2x + 1. Combien vaut f(3) ?",
                 answer: 7
             },
             {
-                question: "Soit f(x) = 3x. Combien vaut f(4) ?",
+                question:
+                    "Soit f(x) = 3x. Combien vaut f(4) ?",
                 answer: 12
             },
             {
-                question: "Soit f(x) = x + 5. Combien vaut f(2) ?",
+                question:
+                    "Soit f(x) = x + 5. Combien vaut f(2) ?",
                 answer: 7
             }
         ]
@@ -550,42 +707,124 @@ const chapters = {
 
 };
 
-// NAVIGATION
+
+// ======================================
+// 2. SAUVEGARDE DE LA PROGRESSION
+// ======================================
+
+const STORAGE_KEY = "espaceMathsProgression";
+
+function loadProgress() {
+
+    try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+
+        return saved && typeof saved === "object"
+            ? saved
+            : {};
+    } catch (error) {
+        return {};
+    }
+
+}
+
+let progress = loadProgress();
+
+function saveProgress() {
+
+    try {
+        localStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify(progress)
+        );
+    } catch (error) {
+        console.warn("Sauvegarde indisponible.");
+    }
+
+}
+
+
+// ======================================
+// 3. NAVIGATION
+// ======================================
 
 function showHome() {
+
     document.getElementById("home").classList.remove("hidden");
+
     document.getElementById("chapter-page").classList.add("hidden");
-    window.scrollTo({top: 0, behavior: "smooth"});
+
+    updateProgress();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
 }
+
 
 function openChapter(id) {
 
     const chapter = chapters[id];
 
     document.getElementById("home").classList.add("hidden");
+
     document.getElementById("chapter-page").classList.remove("hidden");
 
     let html = `
+
         <div class="chapter-intro">
-            <div class="chapter-number">${chapter.number}</div>
+
+            <div class="chapter-number">
+                ${chapter.number}
+            </div>
+
             <h1>${chapter.title}</h1>
+
             <p>${chapter.description}</p>
+
         </div>
 
         <section>
+
             <h2>Mes objectifs</h2>
-            <p>Avant de terminer ce chapitre, vérifie que tu maîtrises ces notions.</p>
+
+            <p>
+                Avant de terminer ce chapitre, vérifie
+                que tu maîtrises ces notions.
+            </p>
 
             <div class="objectives">
+
     `;
 
+    // OBJECTIFS
+
     chapter.objectives.forEach((objective, index) => {
+
+        const checked = progress[id + "-" + index] ? "checked" : "";
+
         html += `
+
             <div class="objective">
-                <input type="checkbox" class="goal" id="${id}-goal-${index}">
-                <label for="${id}-goal-${index}">${objective}</label>
+
+                <input
+                    type="checkbox"
+                    class="goal"
+                    id="${id}-goal-${index}"
+                    data-key="${id}-${index}"
+                    ${checked}
+                >
+
+                <label for="${id}-goal-${index}">
+                    ${objective}
+                </label>
+
             </div>
+
         `;
+
     });
 
     html += `
@@ -593,83 +832,285 @@ function openChapter(id) {
         </section>
 
         <section>
+
             <h2>Je m'entraîne</h2>
-            <p>Résous les exercices suivants pour vérifier ta compréhension.</p>
+
+            <p>
+                Résous les exercices suivants pour vérifier
+                ta compréhension.
+            </p>
     `;
 
+    // EXERCICES DU CHAPITRE
+
     chapter.exercises.forEach((exercise, index) => {
+
         html += createExercise(
             exercise,
             "chapter-" + id + "-" + index,
             chapter.title
         );
+
     });
 
     html += `</section>`;
 
+    // LABORATOIRE GEOGEBRA
+
+    if (id === "fonctions") {
+
+        html += `
+
+            <section class="geogebra-section">
+
+                <h2>Mon laboratoire de fonctions</h2>
+
+                <div class="geogebra-intro">
+
+                    <p>
+                        Place-toi dans la peau d'un mathématicien !
+                        Entre différentes fonctions, observe leurs
+                        graphiques et découvre comment elles évoluent.
+                    </p>
+
+                </div>
+
+                <div class="exercise">
+
+                    <h3>Expérimente avec GeoGebra</h3>
+
+                    <p>
+                        Commence par tester ces fonctions :
+                    </p>
+
+                    <p>
+                        <strong>f(x) = 2x + 1</strong>
+                    </p>
+
+                    <p>
+                        <strong>g(x) = -x + 3</strong>
+                    </p>
+
+                    <p>
+                        <strong>h(x) = x²</strong>
+                    </p>
+
+                    <p>
+                        Entre ces expressions dans GeoGebra
+                        et observe les différences.
+                    </p>
+
+                    <div class="geogebra-frame">
+
+                        <iframe
+                            src="https://www.geogebra.org/calculator?lang=fr"
+                            title="Calculatrice graphique GeoGebra"
+                            allowfullscreen
+                            loading="lazy">
+                        </iframe>
+
+                    </div>
+
+                    <p>
+                        Si le graphique ne s'affiche pas dans ton navigateur,
+                        tu peux aussi utiliser la version externe :
+                    </p>
+
+                    <a
+                        class="geogebra-link"
+                        href="https://www.geogebra.org/graphing?lang=fr"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        Ouvrir GeoGebra dans un nouvel onglet →
+
+                    </a>
+
+                </div>
+
+                <div class="geogebra-tasks">
+
+                    <h3>À toi de réfléchir !</h3>
+
+                    <p>
+                        Après avoir manipulé les graphiques,
+                        essaie de répondre à ces questions :
+                    </p>
+
+                    <ol>
+
+                        <li>
+                            Que se passe-t-il lorsque tu augmentes
+                            le coefficient directeur d'une fonction affine ?
+                        </li>
+
+                        <li>
+                            Que change le nombre ajouté à x
+                            dans une fonction de la forme ax + b ?
+                        </li>
+
+                        <li>
+                            Comment reconnais-tu une fonction
+                            croissante ou décroissante ?
+                        </li>
+
+                        <li>
+                            Quelle différence observes-tu entre
+                            une droite et une parabole ?
+                        </li>
+
+                    </ol>
+
+                </div>
+
+            </section>
+
+        `;
+
+    }
+
     document.getElementById("chapter-content").innerHTML = html;
 
+    // ÉCOUTE DES CASES À COCHER
+
     document.querySelectorAll(".goal").forEach(goal => {
-        goal.addEventListener("change", updateProgress);
+
+        goal.addEventListener("change", function() {
+
+            const key = this.dataset.key;
+
+            progress[key] = this.checked;
+
+            saveProgress();
+
+            updateProgress();
+
+        });
+
     });
 
-    window.scrollTo({top: 0, behavior: "smooth"});
+    updateProgress();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
 }
 
-// CRÉATION D'UN EXERCICE
+
+// ======================================
+// 4. CRÉATION DES EXERCICES
+// ======================================
 
 function createExercise(exercise, id, chapterName) {
 
     return `
+
         <div class="exercise">
-            <div class="chapter-number">${chapterName}</div>
+
+            <div class="chapter-number">
+                ${chapterName}
+            </div>
+
             <h3>Exercice</h3>
+
             <p>${exercise.question}</p>
 
-            <input type="number" id="${id}-answer" placeholder="Ta réponse">
+            <input
+                type="number"
+                id="${id}-answer"
+                placeholder="Ta réponse"
+                step="any"
+            >
 
             <br>
 
-            <button onclick="checkAnswer('${id}', ${exercise.answer})">
+            <button
+                onclick="checkAnswer('${id}', ${exercise.answer})">
+
                 Vérifier ma réponse
+
             </button>
 
-            <div class="feedback" id="${id}-feedback"></div>
+            <div
+                class="feedback"
+                id="${id}-feedback"
+                aria-live="polite">
+            </div>
+
         </div>
+
     `;
+
 }
 
-// CORRECTION DES EXERCICES
+
+// ======================================
+// 5. CORRECTION AUTOMATIQUE
+// ======================================
 
 function checkAnswer(id, correctAnswer) {
 
     const input = document.getElementById(id + "-answer");
+
     const feedback = document.getElementById(id + "-feedback");
 
     if (input.value.trim() === "") {
-        feedback.textContent = "Entre une réponse avant de vérifier.";
+
+        feedback.textContent =
+            "Entre une réponse avant de vérifier.";
+
         feedback.className = "feedback error";
+
         return;
+
     }
 
-    if (Number(input.value) === correctAnswer) {
-        feedback.textContent = "Bravo ! C'est la bonne réponse.";
+    if (Math.abs(Number(input.value) - correctAnswer) < 0.000001) {
+
+        feedback.textContent =
+            "Bravo ! C'est la bonne réponse.";
+
         feedback.className = "feedback success";
+
     } else {
-        feedback.textContent = "Ce n'est pas encore ça. Essaie à nouveau !";
+
+        feedback.textContent =
+            "Ce n'est pas encore ça. Essaie à nouveau !";
+
         feedback.className = "feedback error";
+
     }
+
 }
 
-// PROGRESSION
+
+// ======================================
+// 6. PROGRESSION GLOBALE
+// ======================================
 
 function updateProgress() {
 
-    const goals = document.querySelectorAll(".goal");
-    const checked = document.querySelectorAll(".goal:checked").length;
+    let total = 0;
+    let checked = 0;
 
-    const percentage = goals.length
-        ? Math.round((checked / goals.length) * 100)
+    Object.keys(chapters).forEach(id => {
+
+        chapters[id].objectives.forEach((objective, index) => {
+
+            total++;
+
+            if (progress[id + "-" + index]) {
+                checked++;
+            }
+
+        });
+
+    });
+
+    const percentage = total
+        ? Math.round((checked / total) * 100)
         : 0;
 
     document.getElementById("progress-value").textContent =
@@ -677,46 +1118,94 @@ function updateProgress() {
 
     document.getElementById("progress-fill").style.width =
         percentage + "%";
+
 }
 
-// BASE D'EXERCICES POUR LES RÉVISIONS
+
+// ======================================
+// 7. BASE DE TOUS LES EXERCICES
+// ======================================
 
 const allExercises = [];
 
 Object.keys(chapters).forEach(id => {
+
     chapters[id].exercises.forEach(exercise => {
+
         allExercises.push({
+
             ...exercise,
+
             chapter: chapters[id].title
+
         });
+
     });
+
 });
 
-// MÉLANGE ALÉATOIRE
+
+// ======================================
+// 8. MÉLANGE ALÉATOIRE
+// ======================================
+
+function shuffleArray(array) {
+
+    const shuffled = [...array];
+
+    for (let i = shuffled.length - 1; i > 0; i--) {
+
+        const j = Math.floor(Math.random() * (i + 1));
+
+        [shuffled[i], shuffled[j]] =
+            [shuffled[j], shuffled[i]];
+
+    }
+
+    return shuffled;
+
+}
+
+
+// ======================================
+// 9. RÉVISIONS TOUS CHAPITRES
+// ======================================
 
 function generateMixedExercises() {
 
-    const shuffled = [...allExercises].sort(
-        () => Math.random() - 0.5
-    );
+    const shuffled = shuffleArray(allExercises);
 
     const selected = shuffled.slice(0, 5);
 
-    const container = document.getElementById("mixed-exercises");
+    const container =
+        document.getElementById("mixed-exercises");
 
     container.innerHTML = selected.map((exercise, index) => {
 
-        return createExercise(
-            exercise,
-            "mixed-" + index,
-            exercise.chapter
-        );
+        return `
+
+            <div class="mixed-tag">
+                QUESTION ${index + 1} / 5
+            </div>
+
+            ${createExercise(
+                exercise,
+                "mixed-" + index,
+                exercise.chapter
+            )}
+
+        `;
 
     }).join("");
 
 }
 
-// PREMIÈRE SÉRIE DE RÉVISIONS
+
+// ======================================
+// 10. INITIALISATION
+// ======================================
+
+updateProgress();
 
 generateMixedExercises();
 
