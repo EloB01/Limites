@@ -50,7 +50,7 @@
             margin-top: 10px;
         }
 
-        input[type="text"] {
+        input[type="text"], input[type="number"] {
             padding: 8px;
             font-size: 16px;
             width: 150px;
@@ -82,15 +82,14 @@
 </head>
 <body>
 
-    <!-- Titre principal avec couleur forcée en inline -->
     <h1 style="color: #8DA6D6 !important; text-align: center;">Entraînement de Mathématiques</h1>
     <p style="text-align: center;">Résolvez les exercices ci-dessous et validez vos réponses.</p>
 
+    <!-- EXERCICE 1 -->
     <div class="exercice">
-        <!-- Sous-titre avec couleur forcée en inline -->
         <h3 style="color: #8DA6D6 !important;">Exercice 1 : Équation du premier degré</h3>
         <p>Résolvez l'équation suivante : \(3x - 5 = 10\)</p>
-        <p>Donnez la valeur de \(x\) :</p>
+        <p>Donnez la valeur de \(x\) (si c'est une fraction, écrivez-la sous forme décimale, ex: 2.5) :</p>
         <input type="text" id="rep1" placeholder="Votre réponse">
         <br>
         <button onclick="verifier1()">Valider</button>
@@ -98,14 +97,29 @@
 
         <details>
             <summary>💡 Besoin d'un indice ?</summary>
-            <p>Essayez d'isoler le terme en \(x\) en faisant passer le \(-5\) de l'autre côté.</p>
+            <p>Essayez d'isoler le terme en \(x\) en faisant passer le \(-5\) de l'autre côté de l'égalité.</p>
         </details>
 
         <details>
             <summary>📖 Voir la correction détaillée</summary>
-            <p>1. On part de : \(3x - 5 = 10\)</p>
-            <p>2. On ajoute 5 : \(3x = 15\)</p>
+            <p>1. On part de l'équation : \(3x - 5 = 10\)</p>
+            <p>2. On ajoute 5 des deux côtés : \(3x = 15\)</p>
             <p>3. On divise par 3 : \(x = 5\)</p>
+        </details>
+    </div>
+
+    <!-- EXERCICE 2 -->
+    <div class="exercice">
+        <h3 style="color: #8DA6D6 !important;">Exercice 2 : Calcul de dérivée</h3>
+        <p>Soit la fonction \(f(x) = 2x^3 - 4x + 1\). Quel est le coefficient directeur de la tangente en \(x = 1\), c'est-à-dire la valeur de \(f'(1)\) ?</p>
+        <input type="number" id="rep2" placeholder="Votre réponse">
+        <br>
+        <button onclick="verifier2()">Valider</button>
+        <div id="feedback2" style="margin-top: 10px; font-weight: bold;"></div>
+
+        <details>
+            <summary>💡 Besoin d'un indice ?</summary>
+            <p>Le coefficient directeur en \(x = 1\) correspond à \(f'(1)\). Calculez d'abord la dérivée \(f'(x)\).</p>
         </details>
     </div>
 
@@ -116,6 +130,21 @@
             if (val === "5") {
                 feed.innerHTML = "🎉 Correct ! Bravo.";
                 feed.style.color = "#27ae60";
+            } else {
+                feed.innerHTML = "❌ Incorrect.";
+                feed.style.color = "#c0392b";
+            }
+        }
+
+        function verifier2() {
+            let val = document.getElementById('rep2').value.trim();
+            let feed = document.getElementById('feedback2');
+            if (val === "2") {
+                feed.innerHTML = "🎉 Correct ! La dérivée est \\(f'(x) = 6x^2 - 4\\).";
+                feed.style.color = "#27ae60";
+                if (window.MathJax) {
+                    MathJax.typeset();
+                }
             } else {
                 feed.innerHTML = "❌ Incorrect.";
                 feed.style.color = "#c0392b";
