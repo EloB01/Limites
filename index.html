@@ -4,53 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercices de Mathématiques</title>
+    
+    <!-- Importation de la police Source Sans Pro depuis Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
     <!-- Chargement de MathJax pour de superbes formules mathématiques -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>
     
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
+            /* Application de la police Source Sans Pro à tout le document */
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #E6E6E1;
+            color: #8C8B82;
             max-width: 700px;
             margin: 40px auto;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            background-color: #ffffff; /* Garde l'encadré principal blanc pour la lisibilité */
         }
+
+        /* Couleur des titres principaux et secondaires */
+        h1, h3 {
+            color: #8DA6D6;
+        }
+
         h1 {
-            color: #2c3e50;
             text-align: center;
         }
+
         .exercice {
             background: #f9fbfb;
-            border-left: 5px solid #3498db;
+            border-left: 5px solid #8DA6D6;
             padding: 15px 20px;
             margin: 20px 0;
             border-radius: 4px;
         }
+
         button {
-            background-color: #3498db;
+            background-color: #8DA6D6;
             color: white;
             border: none;
             padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+            font-family: 'Source Sans Pro', sans-serif;
             margin-top: 10px;
         }
+
         button:hover {
-            background-color: #2980b9;
+            background-color: #728ec4;
         }
+
         input[type="text"], input[type="number"] {
             padding: 8px;
             font-size: 16px;
             width: 150px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            font-family: 'Source Sans Pro', sans-serif;
         }
+
         .feedback {
             margin-top: 10px;
             font-weight: bold;
@@ -88,10 +107,10 @@
             let feed = document.getElementById('feedback1');
             if (val === "5") {
                 feed.innerHTML = "🎉 Correct ! Bravo.";
-                feed.style.color = "green";
+                feed.style.color = "#27ae60";
             } else {
                 feed.innerHTML = "❌ Incorrect. Indice : isolez d'abord 3x en ajoutant 5 des deux côtés.";
-                feed.style.color = "e74c3c";
+                feed.style.color = "#e74c3c";
             }
         }
 
@@ -101,8 +120,7 @@
             let feed = document.getElementById('feedback2');
             if (val === "2") {
                 feed.innerHTML = "🎉 Correct ! La dérivée est \(f'(x) = 6x^2 - 4\).";
-                feed.style.color = "green";
-                // Relance MathJax si du texte mathématique dynamique est injecté
+                feed.style.color = "#27ae60";
                 MathJax.typeset();
             } else {
                 feed.innerHTML = "❌ Incorrect. Pensez à dériver chaque terme séparément.";
