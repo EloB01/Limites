@@ -5,41 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercices de Mathématiques</title>
     
-    <!-- Importation de la police Source Sans Pro -->
+    <!-- Police Source Sans Pro -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Configuration de MathJax -->
+    <!-- MathJax -->
     <script>
         window.MathJax = {
-            tex: {
-                inlineMath: [['\\(', '\\)']],
-                displayMath: [['$$', '$$']],
-                processEscapes: true
-            }
+            tex: { inlineMath: [['\\(', '\\)']] }
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <style>
-        /* 1. Fond global de la page STRICTEMENT BLANC (pas de voile beige) */
+        /* Tout le texte de la page en Source Sans Pro et en #8C8B82, fond blanc */
         body {
             font-family: 'Source Sans Pro', sans-serif !important;
-            background-color: #ffffff !important;
+            background-color: #FFFFFF !important;
             color: #8C8B82 !important;
             max-width: 700px;
             margin: 40px auto;
             padding: 30px;
         }
 
-        /* 2. Tous les textes, paragraphes et labels en #8C8B82 */
-        p, label, span, div, body {
+        p, label, span, div {
             color: #8C8B82 !important;
         }
 
-        /* 3. Tous les titres H1 et H3 en #8DA6D6 */
-        h1, h3, .exercice h3 {
+        /* Titres en #8DA6D6 */
+        h1, h3 {
             color: #8DA6D6 !important;
         }
 
@@ -47,7 +42,7 @@
             text-align: center;
         }
 
-        /* 4. Blocs d'exercices en fond #E6E6E1 avec bordure #8DA6D6 */
+        /* Blocs d'exercices en fond #E6E6E1 */
         .exercice {
             background-color: #E6E6E1 !important; 
             border-left: 6px solid #8DA6D6 !important;
@@ -56,7 +51,6 @@
             border-radius: 6px;
         }
 
-        /* Boutons aux couleurs assorties */
         button {
             background-color: #8DA6D6 !important;
             color: white !important;
@@ -69,10 +63,6 @@
             margin-top: 10px;
         }
 
-        button:hover {
-            background-color: #728ec4 !important;
-        }
-
         input[type="text"], input[type="number"] {
             padding: 8px;
             font-size: 16px;
@@ -80,19 +70,13 @@
             border: 1px solid #b0b0a8;
             border-radius: 4px;
             font-family: 'Source Sans Pro', sans-serif;
+            background-color: #FFFFFF !important;
             color: #333 !important;
-            background-color: #ffffff !important;
         }
 
-        .feedback {
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        /* Volets cliquables (Indices / Corrections) */
         details {
             margin-top: 15px;
-            background: #ffffff !important;
+            background: #FFFFFF !important;
             padding: 10px 15px;
             border-radius: 5px;
             border: 1px solid #d0d0c8;
@@ -102,13 +86,6 @@
             font-weight: 600;
             color: #8DA6D6 !important;
             cursor: pointer;
-            outline: none;
-        }
-
-        details p {
-            margin-top: 10px;
-            margin-bottom: 0;
-            color: #8C8B82 !important;
         }
     </style>
 </head>
@@ -125,33 +102,18 @@
         <input type="text" id="rep1" placeholder="Votre réponse">
         <br>
         <button onclick="verifier1()">Valider</button>
-        <div id="feedback1" class="feedback"></div>
+        <div id="feedback1" style="margin-top: 10px; font-weight: bold;"></div>
 
         <details>
             <summary>💡 Besoin d'un indice ?</summary>
-            <p>Essayez d'isoler le terme en \(x\) en faisant passer le \(-5\) de l'autre côté de l'égalité.</p>
+            <p>Essayez d'isoler le terme en \(x\) en faisant passer le \(-5\) de l'autre côté.</p>
         </details>
 
         <details>
             <summary>📖 Voir la correction détaillée</summary>
-            <p>1. On part de l'équation : \(3x - 5 = 10\)</p>
-            <p>2. On ajoute 5 des deux côtés : \(3x = 15\)</p>
+            <p>1. On part de : \(3x - 5 = 10\)</p>
+            <p>2. On ajoute 5 : \(3x = 15\)</p>
             <p>3. On divise par 3 : \(x = 5\)</p>
-        </details>
-    </div>
-
-    <!-- EXERCICE 2 -->
-    <div class="exercice">
-        <h3>Exercice 2 : Calcul de dérivée</h3>
-        <p>Soit la fonction \(f(x) = 2x^3 - 4x + 1\). Quel est le coefficient directeur de la tangente en \(x = 1\), c'est-à-dire la valeur de \(f'(1)\) ?</p>
-        <input type="number" id="rep2" placeholder="Votre réponse">
-        <br>
-        <button onclick="verifier2()">Valider</button>
-        <div id="feedback2" class="feedback"></div>
-
-        <details>
-            <summary>💡 Besoin d'un indice ?</summary>
-            <p>Le coefficient directeur en \(x = 1\) correspond à \(f'(1)\). Calculez d'abord la dérivée \(f'(x)\).</p>
         </details>
     </div>
 
@@ -164,21 +126,6 @@
                 feed.style.color = "#27ae60";
             } else {
                 feed.innerHTML = "❌ Incorrect. Regardez l'indice ou la correction.";
-                feed.style.color = "#c0392b";
-            }
-        }
-
-        function verifier2() {
-            let val = document.getElementById('rep2').value.trim();
-            let feed = document.getElementById('feedback2');
-            if (val === "2") {
-                feed.innerHTML = "🎉 Correct ! La dérivée est \\(f'(x) = 6x^2 - 4\\).";
-                feed.style.color = "#27ae60";
-                if (window.MathJax) {
-                    MathJax.typeset();
-                }
-            } else {
-                feed.innerHTML = "❌ Incorrect. Pensez à dériver chaque terme séparément.";
                 feed.style.color = "#c0392b";
             }
         }
