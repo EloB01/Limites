@@ -4,396 +4,346 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mon espace mathématiques</title>
-
+<title>Espace étudiant | Mathématiques & Économie</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root {
-    --purple:#5B57A2;
-    --background:#FFFFFF;
-    --exercise:#E8E2DE;
-    --check:#C6C0B4;
-    --text:#8C8B82;
-    --dark:#55544E;
-    --light:#F7F5F3;
+  --purple: #5B57A2;
+  --background: #FFFFFF;
+  --exercise: #E8E2DE;
+  --check: #C6C0B4;
+  --text: #8C8B82;
+  --dark: #55544E;
+  --light: #F7F5F3;
+
+  --basic: #DCEBDD;
+  --basic-dark: #39734A;
+  --middle: #F8E6C9;
+  --middle-dark: #A56819;
+  --target: #E5DDF3;
+  --target-dark: #70539A;
 }
 
-* {
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-html { scroll-behavior:smooth; }
+* { box-sizing: border-box; }
 
 body {
-    font-family:'Source Sans 3',sans-serif;
-    background:var(--background);
-    color:var(--text);
-    line-height:1.6;
+  margin: 0;
+  background: var(--background);
+  color: var(--dark);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 17px;
 }
 
 header {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:22px 8%;
-    border-bottom:1px solid #F0EEEC;
-    flex-wrap:wrap;
-    gap:15px;
+  background: var(--purple);
+  color: white;
+  padding: 28px 7%;
 }
 
-.logo {
-    color:var(--purple);
-    font-size:23px;
-    font-weight:700;
+.header-inner {
+  max-width: 1100px;
+  margin: auto;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+header p {
+  margin: 5px 0 0;
+  opacity: .9;
 }
 
 nav {
-    display:flex;
-    gap:25px;
-    flex-wrap:wrap;
+  background: white;
+  border-bottom: 1px solid #eee;
+  padding: 12px 7%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-nav a {
-    color:var(--text);
-    text-decoration:none;
-    cursor:pointer;
-}
-
-nav a:hover { color:var(--purple); }
-
-.student {
-    color:var(--purple);
-    font-weight:600;
-}
-
-main {
-    max-width:1100px;
-    margin:50px auto;
-    padding:0 25px;
-}
-
-h1,h2,h3 {
-    color:var(--purple);
-    font-weight:600;
-}
-
-h1 { font-size:36px; margin-bottom:8px; }
-h2 { font-size:26px; margin-bottom:12px; }
-h3 { font-size:19px; margin-bottom:8px; }
-
-p { margin-bottom:8px; }
-
-section { margin-bottom:55px; }
-
-.hidden { display:none !important; }
-
-/* ACCUEIL */
-
-.intro { margin-bottom:35px; }
-.intro p { font-size:17px; }
-
-.progress-card {
-    background:var(--light);
-    border-radius:14px;
-    padding:23px;
-    margin-bottom:45px;
-}
-
-.progress-top {
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:10px;
-}
-
-.progress-bar {
-    height:10px;
-    background:#E5E1DD;
-    border-radius:20px;
-    overflow:hidden;
-}
-
-.progress-fill {
-    height:100%;
-    width:0;
-    background:var(--purple);
-    transition:width .3s;
-}
-
-/* CHAPITRES */
-
-.chapters {
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-    margin-top:22px;
-}
-
-.chapter {
-    width:100%;
-    text-align:left;
-    border:1px solid #EAE7E4;
-    border-radius:12px;
-    padding:23px;
-    background:white;
-    cursor:pointer;
-    transition:.2s;
-}
-
-.chapter:hover {
-    border-color:var(--purple);
-    transform:translateY(-3px);
-    background:#FAF9FB;
-}
-
-.chapter-number {
-    font-size:13px;
-    margin-bottom:9px;
-    letter-spacing:.5px;
-}
-
-.chapter h3 { margin-bottom:8px; }
-.chapter p { font-size:14px; }
-
-.arrow {
-    display:block;
-    text-align:right;
-    color:var(--purple);
-    margin-top:12px;
-    font-size:20px;
-}
-
-/* CHAPITRES */
-
-.back-button {
-    background:none;
-    color:var(--purple);
-    border:1px solid var(--check);
-    padding:8px 16px;
-    margin-bottom:25px;
-}
-
-.chapter-intro {
-    background:var(--light);
-    padding:25px;
-    border-radius:12px;
-    margin:20px 0 30px;
-}
-
-.objectives {
-    background:#F8F7F5;
-    padding:22px;
-    border-radius:12px;
-    margin:20px 0 35px;
-}
-
-.objective {
-    display:flex;
-    align-items:center;
-    gap:12px;
-    padding:10px 0;
-    border-bottom:1px solid #EAE7E4;
-}
-
-.objective:last-child { border-bottom:none; }
-
-.objective input {
-    appearance:none;
-    width:19px;
-    height:19px;
-    border:1px solid var(--check);
-    border-radius:5px;
-    cursor:pointer;
-    flex-shrink:0;
-}
-
-.objective input:checked {
-    background:var(--check);
-    box-shadow:inset 0 0 0 4px white;
-}
-
-.objective input:checked + label {
-    text-decoration:line-through;
-    opacity:.6;
-}
-
-/* NIVEAUX */
-
-.level-intro {
-    margin:30px 0 20px;
-}
-
-.level-tabs {
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin:20px 0 25px;
-}
-
-.level-button {
-    flex:1;
-    min-width:150px;
-    background:white;
-    color:var(--text);
-    border:1px solid #DED9D4;
-    padding:14px;
-    text-align:left;
-    border-radius:10px;
-}
-
-.level-button strong {
-    display:block;
-    color:var(--purple);
-    font-size:16px;
-}
-
-.level-button small {
-    display:block;
-    font-weight:400;
-    margin-top:4px;
-}
-
-.level-button.active {
-    background:#F1EFF8;
-    border:1px solid var(--purple);
-}
-
-.level-description {
-    background:#F8F7F5;
-    border-radius:10px;
-    padding:17px 20px;
-    margin-bottom:20px;
-}
-
-/* EXERCICES */
-
-.exercise {
-    background:var(--exercise);
-    border-radius:13px;
-    padding:25px;
-    margin:18px 0;
-}
-
-.exercise p { margin:10px 0; }
-
-.exercise input[type="number"] {
-    width:190px;
-    max-width:100%;
-    padding:10px;
-    border:1px solid #D0C9C3;
-    border-radius:7px;
-    background:white;
-    font-family:inherit;
-    font-size:16px;
-    color:var(--dark);
+.nav-inner {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 button {
-    background:var(--purple);
-    color:white;
-    border:none;
-    padding:10px 20px;
-    border-radius:7px;
-    font-family:inherit;
-    font-size:15px;
-    cursor:pointer;
-    margin-top:10px;
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 17px;
+  transition: .2s;
 }
 
-button:hover { opacity:.85; }
+.nav-button {
+  color: var(--purple);
+  background: white;
+  font-weight: 700;
+}
+
+.nav-button.active,
+.nav-button:hover {
+  background: var(--purple);
+  color: white;
+}
+
+main {
+  max-width: 1100px;
+  margin: 35px auto;
+  padding: 0 22px 60px;
+}
+
+h2, h3, h4 {
+  color: var(--purple);
+}
+
+h2 {
+  font-size: 28px;
+  margin-top: 0;
+}
+
+h3 { font-size: 21px; }
+
+.intro {
+  color: var(--text);
+  font-size: 18px;
+  max-width: 800px;
+  line-height: 1.5;
+}
+
+.notice {
+  background: var(--light);
+  border-left: 5px solid var(--purple);
+  border-radius: 8px;
+  padding: 17px 20px;
+  margin: 25px 0;
+  line-height: 1.5;
+}
+
+.notice strong { color: var(--purple); }
+
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin: 25px 0 35px;
+}
+
+.section-card {
+  background: var(--light);
+  border-radius: 13px;
+  padding: 22px;
+  border: 1px solid #eee;
+}
+
+.section-card h3 { margin-top: 0; }
+
+.section-card p {
+  color: var(--text);
+  line-height: 1.45;
+}
+
+.primary-button {
+  background: var(--purple);
+  color: white;
+  font-weight: 700;
+}
+
+.primary-button:hover { opacity: .88; }
+
+.secondary-button {
+  background: white;
+  color: var(--purple);
+  border: 1px solid var(--purple);
+}
+
+.chapter-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.objectives {
+  background: var(--light);
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.objectives label {
+  display: block;
+  margin: 10px 0;
+  color: var(--dark);
+  cursor: pointer;
+}
+
+.objectives input {
+  accent-color: var(--purple);
+  margin-right: 9px;
+  transform: scale(1.15);
+}
+
+.level-legend {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.level-tag {
+  display: inline-block;
+  border-radius: 20px;
+  padding: 5px 13px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.level-basic { background: var(--basic); color: var(--basic-dark); }
+.level-middle { background: var(--middle); color: var(--middle-dark); }
+.level-target { background: var(--target); color: var(--target-dark); }
+
+.level-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.level-button {
+  border: 2px solid transparent;
+  font-weight: 700;
+}
+
+.level-button.basic {
+  background: var(--basic);
+  color: var(--basic-dark);
+}
+.level-button.middle {
+  background: var(--middle);
+  color: var(--middle-dark);
+}
+.level-button.target {
+  background: var(--target);
+  color: var(--target-dark);
+}
+
+.level-button.selected {
+  border-color: currentColor;
+  box-shadow: 0 0 0 2px white inset;
+}
+
+.exercise {
+  background: var(--exercise);
+  border-radius: 12px;
+  padding: 22px;
+  margin: 17px 0;
+}
+
+.exercise h4 {
+  margin: 0 0 10px;
+  color: var(--dark);
+  font-size: 19px;
+}
+
+.exercise p {
+  line-height: 1.5;
+  margin: 8px 0 15px;
+}
+
+.answer-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.answer-row input {
+  padding: 11px;
+  border: 1px solid #c9c4bf;
+  border-radius: 7px;
+  font: inherit;
+  width: 180px;
+  background: white;
+}
+
+.check-button {
+  background: var(--purple);
+  color: white;
+  font-weight: 700;
+}
 
 .feedback {
-    margin-top:12px;
-    font-weight:600;
+  margin-top: 12px;
+  font-weight: 700;
 }
 
-.success { color:#47785C; }
-.error { color:#A45D58; }
+.correct { color: #39734A; }
+.incorrect { color: #A34C3C; }
 
-/* GEOGEBRA */
-
-.geogebra-section { margin-top:45px; }
-
-.geogebra-frame {
-    width:100%;
-    height:560px;
-    background:white;
-    border-radius:10px;
-    overflow:hidden;
-    margin:20px 0;
-    border:1px solid #DDD7D2;
+.economy-topic {
+  background: var(--light);
+  padding: 20px;
+  border-radius: 12px;
+  margin: 15px 0;
 }
 
-.geogebra-frame iframe {
-    width:100%;
-    height:100%;
-    border:0;
+.economy-topic h3 { margin-top: 0; }
+
+.geogebra {
+  width: 100%;
+  height: 500px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--light);
 }
 
-.geogebra-link {
-    color:var(--purple);
-    font-weight:600;
-    text-decoration:none;
+.progress-track {
+  height: 10px;
+  background: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 12px 0;
 }
 
-.geogebra-tasks {
-    background:#F8F7F5;
-    border-radius:12px;
-    padding:23px;
-    margin-top:25px;
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--purple);
+  transition: .3s;
 }
 
-.geogebra-tasks li {
-    margin:10px 0 10px 22px;
+.review-card {
+  background: var(--exercise);
+  padding: 18px;
+  border-radius: 10px;
+  margin: 12px 0;
 }
 
-/* RÉVISIONS GÉNÉRALES */
-
-.mixed-section {
-    margin-top:65px;
-    border-top:1px solid #EAE7E4;
-    padding-top:40px;
-}
-
-.mixed-header {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:15px;
-    margin-bottom:20px;
-}
-
-.mixed-label {
-    font-size:13px;
-    letter-spacing:1px;
-    text-transform:uppercase;
-}
-
-.mixed-tag {
-    color:var(--purple);
-    font-size:13px;
-    font-weight:600;
-}
+.hidden { display: none !important; }
 
 footer {
-    text-align:center;
-    border-top:1px solid #F0EEEC;
-    padding:25px;
-    font-size:14px;
+  text-align: center;
+  color: var(--text);
+  border-top: 1px solid #eee;
+  padding: 25px;
 }
 
-@media(max-width:750px) {
-    header { flex-direction:column; }
-    nav { justify-content:center; gap:15px; }
-    .chapters { grid-template-columns:1fr; }
-    h1 { font-size:29px; }
-    .level-tabs { flex-direction:column; }
-    .geogebra-frame { height:460px; }
+@media(max-width:600px) {
+  header h1 { font-size: 25px; }
+  main { margin-top: 25px; }
+  .geogebra { height: 400px; }
 }
 </style>
 </head>
@@ -401,856 +351,547 @@ footer {
 <body>
 
 <header>
-    <div class="logo">MATHÉMATIQUES.</div>
-
-    <nav>
-        <a onclick="showHome()">Accueil</a>
-        <a href="#cours" onclick="showHome()">Mes chapitres</a>
-        <a href="#revisions" onclick="showHome()">Révisions</a>
-    </nav>
-
-    <div class="student">Espace étudiant</div>
+  <div class="header-inner">
+    <h1>Espace étudiant</h1>
+    <p>Mathématiques & Économie – Première année</p>
+  </div>
 </header>
+
+<nav>
+  <div class="nav-inner">
+    <button class="nav-button active" id="homeNav" onclick="showHome()">Accueil</button>
+    <button class="nav-button" id="mathNav" onclick="showSection('math')">Mathématiques</button>
+    <button class="nav-button" id="economyNav" onclick="showSection('economy')">Économie</button>
+  </div>
+</nav>
 
 <main>
 
 <!-- ACCUEIL -->
+<section id="homePage">
+  <h2>Bienvenue dans ton espace de révision !</h2>
+  <p class="intro">
+    Cet espace te permet de revoir les outils mathématiques utiles en première année
+    d'économie et de gestion, de t'entraîner et de vérifier tes réponses.
+  </p>
 
-<div id="home">
+  <div class="notice">
+    <strong>Comment utiliser les exercices ?</strong><br>
+    Ce site est un outil de vérification : il te demande uniquement la réponse finale
+    afin de te permettre de contrôler ton résultat. Cela ne signifie pas que le raisonnement
+    n'est pas important ! Pour chaque exercice, tu dois effectuer les calculs sur papier
+    et rédiger un raisonnement clair, soigné et explicité, en faisant apparaître les étapes
+    de ta démarche.
+  </div>
 
-    <div class="intro">
-        <h1>Bonjour, Camille !</h1>
-        <p>
-            Bienvenue dans ton espace d'apprentissage.
-            Découvre les mathématiques à travers des situations
-            concrètes d'économie et de gestion.
-        </p>
+  <h3>Choisis ton espace de travail</h3>
+
+  <div class="section-grid">
+    <div class="section-card">
+      <h3>Mathématiques</h3>
+      <p>Revoir les méthodes de calcul, les pourcentages, les équations et les fonctions
+      à travers des exercices progressifs.</p>
+      <button class="primary-button" onclick="showSection('math')">Accéder aux chapitres</button>
     </div>
 
-    <div class="progress-card">
-        <div class="progress-top">
-            <strong>Ma progression globale</strong>
-            <strong id="progress-value">0 %</strong>
-        </div>
+    <div class="section-card">
+      <h3>Économie</h3>
+      <p>Retrouver des notions de microéconomie et comprendre comment les outils
+      mathématiques s'appliquent à des situations économiques.</p>
+      <button class="primary-button" onclick="showSection('economy')">Accéder à l'espace économie</button>
+    </div>
+  </div>
 
-        <div class="progress-bar">
-            <div class="progress-fill" id="progress-fill"></div>
-        </div>
+  <h3>Les trois niveaux d'exercices</h3>
+  <p class="intro">Progresse à ton rythme. Tu peux commencer par les bases et avancer
+  lorsque tu te sens prêt.</p>
 
-        <p style="margin-top:10px;font-size:14px;">
-            Chaque notion maîtrisée te rapproche de ton objectif !
-        </p>
+  <div class="level-legend">
+    <span class="level-tag level-basic">1 · Les bases</span>
+    <span class="level-tag level-middle">2 · Intermédiaire</span>
+    <span class="level-tag level-target">3 · Objectif à atteindre</span>
+  </div>
+
+  <h3>Révisions mélangées</h3>
+  <p class="intro">Quelques questions choisies aléatoirement parmi les exercices
+  de mathématiques. Elles permettent de revoir plusieurs méthodes à la fois.</p>
+
+  <button class="primary-button" onclick="generateReview()">Générer une nouvelle série</button>
+  <div id="reviewExercises"></div>
+</section>
+
+<!-- MATHEMATIQUES -->
+<section id="mathPage" class="hidden">
+  <div class="chapter-top">
+    <div>
+      <h2>Espace mathématiques</h2>
+      <p class="intro">Choisis un chapitre pour travailler les techniques de calcul.</p>
+    </div>
+    <button class="secondary-button" onclick="showHome()">← Retour à l'accueil</button>
+  </div>
+
+  <div class="section-grid">
+    <div class="section-card">
+      <h3>01 · Fractions et pourcentages</h3>
+      <p>Calculs fractionnaires, proportions, évolutions et taux.</p>
+      <button class="primary-button" onclick="openChapter('fractions')">Ouvrir le chapitre</button>
+    </div>
+    <div class="section-card">
+      <h3>02 · Les équations</h3>
+      <p>Résoudre une équation du premier degré et transformer une expression.</p>
+      <button class="primary-button" onclick="openChapter('equations')">Ouvrir le chapitre</button>
+    </div>
+    <div class="section-card">
+      <h3>03 · Les fonctions</h3>
+      <p>Calculer une image, déterminer un antécédent et étudier une fonction simple.</p>
+      <button class="primary-button" onclick="openChapter('fonctions')">Ouvrir le chapitre</button>
+    </div>
+  </div>
+
+  <div id="chapterContent" class="hidden"></div>
+</section>
+
+<!-- ECONOMIE -->
+<section id="economyPage" class="hidden">
+  <div class="chapter-top">
+    <div>
+      <h2>Espace économie</h2>
+      <p class="intro">Un espace consacré aux notions économiques et à leur compréhension.
+      Les exercices de cet espace portent sur l'interprétation de situations économiques.</p>
+    </div>
+    <button class="secondary-button" onclick="showHome()">← Retour à l'accueil</button>
+  </div>
+
+  <div class="notice">
+    <strong>À retenir :</strong> les exercices de l'espace mathématiques servent à travailler
+    les techniques de calcul. Ici, l'objectif est de faire le lien entre ces outils et
+    les raisonnements économiques vus au cours, notamment en microéconomie.
+  </div>
+
+  <div class="economy-topic">
+    <h3>1. Offre, demande et équilibre du marché</h3>
+    <p>La demande représente la quantité que les consommateurs souhaitent acheter
+    à un prix donné. L'offre représente la quantité que les producteurs souhaitent vendre.</p>
+    <p>L'équilibre du marché est atteint lorsque la quantité offerte est égale à la quantité demandée.</p>
+    <p><strong>Exemple :</strong> si la demande est D(p) = 100 − 2p et l'offre O(p) = 20 + 2p,
+    l'équilibre se trouve en recherchant le prix pour lequel D(p) = O(p).</p>
+  </div>
+
+  <div class="economy-topic">
+    <h3>2. Coûts, recettes et bénéfices</h3>
+    <p>Le coût total regroupe les dépenses liées à la production. La recette totale correspond
+    au montant des ventes. Le bénéfice est la différence entre les recettes et les coûts.</p>
+    <p><strong>Formule :</strong> Bénéfice = Recette totale − Coût total.</p>
+  </div>
+
+  <div class="economy-topic">
+    <h3>3. Élasticité et comportement des consommateurs</h3>
+    <p>L'élasticité mesure la sensibilité d'une variable à la variation d'une autre variable.
+    En microéconomie, l'élasticité-prix de la demande permet notamment d'étudier la réaction
+    de la quantité demandée à une variation du prix.</p>
+  </div>
+
+  <div class="economy-topic">
+    <h3>4. Exercices de réflexion économique</h3>
+    <p>Ces questions servent à vérifier ta compréhension des notions. Prends le temps
+    de formuler une explication sur papier avant de consulter la correction.</p>
+
+    <div class="exercise">
+      <h4>Question 1 · Équilibre du marché</h4>
+      <p>Lorsque le prix d'un produit est inférieur au prix d'équilibre, la quantité demandée
+      est supérieure à la quantité offerte. Comment appelle-t-on cette situation ?</p>
+      <div class="answer-row">
+        <input id="eco1" type="text" placeholder="Ta réponse">
+        <button class="check-button" onclick="checkText('eco1','excès de demande','eco1feedback')">Vérifier</button>
+      </div>
+      <div class="feedback" id="eco1feedback"></div>
     </div>
 
-    <section id="cours">
-        <h2>Mes chapitres</h2>
-        <p>
-            Choisis un chapitre pour découvrir les notions
-            et t'entraîner à ton rythme.
-        </p>
+    <div class="exercise">
+      <h4>Question 2 · Bénéfice</h4>
+      <p>Une entreprise réalise 4 000 € de recettes et supporte 3 200 € de coûts.
+      Quel est son bénéfice en euros ?</p>
+      <div class="answer-row">
+        <input id="eco2" type="text" placeholder="Ta réponse">
+        <button class="check-button" onclick="checkAnswer('eco2',800,'eco2feedback')">Vérifier</button>
+      </div>
+      <div class="feedback" id="eco2feedback"></div>
+    </div>
 
-        <div class="chapters">
-
-            <button class="chapter" onclick="openChapter('fractions')">
-                <div class="chapter-number">CHAPITRE 01</div>
-                <h3>Fractions et pourcentages</h3>
-                <p>
-                    Remises, TVA, marges commerciales
-                    et parts de marché.
-                </p>
-                <span class="arrow">→</span>
-            </button>
-
-            <button class="chapter" onclick="openChapter('equations')">
-                <div class="chapter-number">CHAPITRE 02</div>
-                <h3>Les équations</h3>
-                <p>
-                    Coûts, recettes, quantités vendues
-                    et seuil de rentabilité.
-                </p>
-                <span class="arrow">→</span>
-            </button>
-
-            <button class="chapter" onclick="openChapter('fonctions')">
-                <div class="chapter-number">CHAPITRE 03</div>
-                <h3>Les fonctions</h3>
-                <p>
-                    Coûts, bénéfices, offre, demande
-                    et graphiques économiques.
-                </p>
-                <span class="arrow">→</span>
-            </button>
-
-        </div>
-    </section>
-
-    <!-- RÉVISIONS UNIQUEMENT SUR LA PAGE D'ACCUEIL -->
-
-    <section class="mixed-section" id="revisions">
-
-        <div class="mixed-label">Entraînement général</div>
-
-        <div class="mixed-header">
-            <div>
-                <h2>Je révise tout !</h2>
-                <p>
-                    Des situations économiques et commerciales
-                    issues de tous les chapitres.
-                </p>
-            </div>
-
-            <button onclick="generateMixedExercises()">
-                ↻ Nouveaux exercices
-            </button>
-        </div>
-
-        <div id="mixed-exercises"></div>
-
-    </section>
-
-</div>
-
-<!-- PAGE DES CHAPITRES -->
-
-<div id="chapter-page" class="hidden">
-
-    <button class="back-button" onclick="showHome()">
-        ← Retour à l'accueil
-    </button>
-
-    <div id="chapter-content"></div>
-
-</div>
+    <div class="exercise">
+      <h4>Question 3 · Variation de la demande</h4>
+      <p>Si le prix d'un bien augmente et que la quantité demandée diminue,
+      comment qualifie-t-on généralement cette relation entre le prix et la quantité demandée ?</p>
+      <div class="answer-row">
+        <input id="eco3" type="text" placeholder="Ta réponse">
+        <button class="check-button" onclick="checkText('eco3','inverse','eco3feedback')">Vérifier</button>
+      </div>
+      <div class="feedback" id="eco3feedback"></div>
+    </div>
+  </div>
+</section>
 
 </main>
 
 <footer>
-    Mon espace mathématiques · Apprendre à son rythme.
+  Espace étudiant · Mathématiques & Économie · Première année
 </footer>
 
 <script>
-
-// =====================================
-// 1. CONTENU DES CHAPITRES
-// =====================================
-
 const chapters = {
-
-fractions: {
-
-    title:"Fractions et pourcentages",
-    number:"CHAPITRE 01",
-
-    description:
-    "Les pourcentages et les fractions sont présents dans " +
-    "de nombreuses situations commerciales : calcul des remises, " +
-    "TVA, marges et répartition des parts de marché.",
-
-    objectives:[
-        "Je sais calculer une fraction d'une quantité.",
-        "Je sais calculer un pourcentage.",
-        "Je sais appliquer une réduction.",
-        "Je sais calculer une augmentation.",
-        "Je sais interpréter un pourcentage dans une situation économique."
+  fractions: {
+    title: "Fractions et pourcentages",
+    description: "Maîtriser les calculs de proportions, de fractions et de pourcentages.",
+    objectives: [
+      "Effectuer des opérations avec des fractions.",
+      "Calculer un pourcentage d'une quantité.",
+      "Calculer une augmentation ou une diminution en pourcentage.",
+      "Passer d'un taux à une valeur."
     ],
-
-    levels:[
-
-        {
-            name:"Les bases",
-            description:"Je consolide mes acquis et je révise les calculs simples.",
-
-            exercises:[
-                {
-                    question:"Un magasin vend une calculatrice à 40 €. Il propose une réduction de 15 %. Quel est le montant de la réduction, en euros ?",
-                    answer:6
-                },
-                {
-                    question:"Une entreprise réalise un chiffre d'affaires de 200 €. 25 % de ce montant proviennent d'un produit. Quel montant cela représente-t-il ?",
-                    answer:50
-                },
-                {
-                    question:"Un article coûte 100 €. Son prix augmente de 10 %. Quel est son nouveau prix ?",
-                    answer:110
-                }
-            ]
-        },
-
-        {
-            name:"Intermédiaire",
-            description:"Je mobilise les pourcentages dans des situations de gestion.",
-
-            exercises:[
-                {
-                    question:"Une entreprise achète un produit 80 € et applique une majoration de 25 % sur son prix d'achat. Quel est son prix de vente HT ?",
-                    answer:100
-                },
-                {
-                    question:"Un magasin réalise 12 000 € de chiffre d'affaires. Les ventes en ligne représentent 35 %. Quel montant provient des ventes en ligne ?",
-                    answer:4200
-                },
-                {
-                    question:"Un article coûte 150 € HT. Calcule son prix TTC avec une TVA de 21 %.",
-                    answer:181.5
-                }
-            ]
-        },
-
-        {
-            name:"Objectif à atteindre",
-            description:"Je combine plusieurs raisonnements et je prends des décisions.",
-
-            exercises:[
-                {
-                    question:"Un article coûte 90 €. Le magasin propose deux promotions : une réduction de 20 % ou une réduction de 15 €. Quel est le prix final le plus bas ?",
-                    answer:72
-                },
-                {
-                    question:"Une entreprise vend 500 produits à 20 € pièce. Son chiffre d'affaires augmente de 10 %. Quel est le nouveau chiffre d'affaires ?",
-                    answer:11000
-                },
-                {
-                    question:"Un magasin achète un produit 60 € HT et le revend 90 € HT. Quel est son taux de marge sur le prix d'achat, en pourcentage ?",
-                    answer:50
-                }
-            ]
-        }
-
+    levels: [
+      {
+        name: "Les bases",
+        exercises: [
+          {q:"Un article coûte 40 €. Il bénéficie d'une réduction de 15 %. Quel est le montant de la réduction ?", a:6},
+          {q:"Calcule 25 % de 200.", a:50},
+          {q:"Un prix de 100 € augmente de 10 %. Quel est le nouveau prix ?", a:110},
+          {q:"Calcule les trois quarts de 80.", a:60}
+        ]
+      },
+      {
+        name: "Intermédiaire",
+        exercises: [
+          {q:"Un prix de 80 € augmente de 25 %. Quel est le nouveau prix ?", a:100},
+          {q:"Une entreprise réalise 35 % de son chiffre d'affaires à l'exportation. Son chiffre d'affaires est de 12 000 €. Quel montant cela représente-t-il ?", a:4200},
+          {q:"Un produit coûte 150 € hors TVA. Le taux de TVA est de 21 %. Quel est son prix TVAC ?", a:181.5},
+          {q:"Un prix passe de 120 € à 150 €. Quel est le taux d'augmentation en pourcentage ?", a:25}
+        ]
+      },
+      {
+        name: "Objectif à atteindre",
+        exercises: [
+          {q:"Un produit coûte 90 €. Quelle offre est la plus avantageuse : une réduction de 20 % ou une réduction de 15 € ? Donne le prix final le plus bas.", a:72},
+          {q:"Une entreprise vend 500 produits à 20 € l'unité. Son chiffre d'affaires augmente ensuite de 10 %. Quel est le nouveau chiffre d'affaires ?", a:11000},
+          {q:"Un commerçant achète un produit 60 € et le revend 90 €. Quel est son taux de marge sur prix d'achat, en pourcentage ?", a:50},
+          {q:"Après une réduction de 20 %, un article coûte 64 €. Quel était son prix initial ?", a:80}
+        ]
+      }
     ]
-},
+  },
 
-equations: {
-
-    title:"Les équations",
-    number:"CHAPITRE 02",
-
-    description:
-    "Les équations permettent de retrouver une quantité inconnue, " +
-    "de calculer des coûts et d'étudier la rentabilité d'une entreprise.",
-
-    objectives:[
-        "Je comprends la notion d'inconnue.",
-        "Je sais isoler une inconnue.",
-        "Je sais résoudre une équation simple.",
-        "Je sais traduire une situation de gestion en équation.",
-        "Je sais interpréter une solution."
+  equations: {
+    title: "Les équations",
+    description: "Résoudre des équations simples et utiliser l'algèbre dans des situations chiffrées.",
+    objectives: [
+      "Isoler une inconnue dans une équation.",
+      "Résoudre une équation du premier degré.",
+      "Vérifier une solution.",
+      "Traduire une situation simple par une équation."
     ],
-
-    levels:[
-
-        {
-            name:"Les bases",
-            description:"Je m'entraîne à isoler une inconnue dans des situations simples.",
-
-            exercises:[
-                {
-                    question:"Un commerçant vend un article 25 €. Il en vend x exemplaires et réalise 200 € de recettes. Combien en a-t-il vendu ?",
-                    answer:8
-                },
-                {
-                    question:"Une entreprise possède 120 € de budget. Elle dépense 40 €. Combien lui reste-t-il ?",
-                    answer:80
-                },
-                {
-                    question:"Une entreprise vend 5 articles identiques et reçoit 75 €. Quel est le prix d'un article ?",
-                    answer:15
-                }
-            ]
-        },
-
-        {
-            name:"Intermédiaire",
-            description:"Je traduis des situations économiques en équations.",
-
-            exercises:[
-                {
-                    question:"Une entreprise a 500 € de frais fixes et un coût variable de 8 € par produit. Son coût total est de 1 300 €. Combien de produits a-t-elle fabriqués ?",
-                    answer:100
-                },
-                {
-                    question:"Un commerçant vend des articles à 30 €. Il souhaite atteindre 900 € de recettes. Combien doit-il en vendre ?",
-                    answer:30
-                },
-                {
-                    question:"Un budget marketing de 1 000 € est réparti entre deux campagnes. La première coûte 400 €. Quel budget reste-t-il pour la seconde ?",
-                    answer:600
-                }
-            ]
-        },
-
-        {
-            name:"Objectif à atteindre",
-            description:"Je résous des problèmes de rentabilité et j'interprète les résultats.",
-
-            exercises:[
-                {
-                    question:"Une entreprise vend ses produits 30 € pièce. Ses coûts sont de 600 € de frais fixes et 12 € par produit. Quel est le nombre minimal de produits à vendre pour obtenir un bénéfice strictement positif ?",
-                    answer:34
-                },
-                {
-                    question:"Une entreprise vend un produit 45 €. Son coût variable est de 25 € par unité et ses frais fixes sont de 800 €. Combien d'unités doit-elle vendre pour obtenir un bénéfice de 200 € ?",
-                    answer:50
-                },
-                {
-                    question:"Deux fournisseurs proposent un service. A facture 200 € de frais fixes et 10 € par unité. B facture 100 € de frais fixes et 15 € par unité. Pour quelle quantité les deux offres coûtent-elles le même prix ?",
-                    answer:20
-                }
-            ]
-        }
-
+    levels: [
+      {
+        name: "Les bases",
+        exercises: [
+          {q:"Résous l'équation x + 12 = 30. Donne la valeur de x.", a:18},
+          {q:"Résous l'équation 3x = 45.", a:15},
+          {q:"Résous l'équation 2x + 10 = 30.", a:10},
+          {q:"Résous l'équation x − 7 = 18.", a:25}
+        ]
+      },
+      {
+        name: "Intermédiaire",
+        exercises: [
+          {q:"Une entreprise supporte 500 € de frais fixes et un coût variable de 8 € par produit. Son coût total est de 1 300 €. Combien de produits a-t-elle fabriqués ?", a:100},
+          {q:"Résous l'équation 5x − 20 = 80.", a:20},
+          {q:"Résous l'équation 4x + 12 = 2x + 40.", a:14},
+          {q:"Une entreprise réalise 900 € de recettes en vendant chaque produit 30 €. Combien de produits a-t-elle vendus ?", a:30}
+        ]
+      },
+      {
+        name: "Objectif à atteindre",
+        exercises: [
+          {q:"Une entreprise vend chaque produit 30 €. Son coût total est C(x) = 600 + 12x. À partir de combien de produits son bénéfice est-il strictement positif ? Donne le plus petit nombre entier.", a:34},
+          {q:"Une entreprise vend chaque produit 45 €. Son coût total est de 800 € de frais fixes et 25 € par produit. Combien de produits doit-elle vendre pour réaliser un bénéfice de 200 € ?", a:50},
+          {q:"Détermine la valeur de x pour laquelle 200 + 10x = 100 + 15x.", a:20},
+          {q:"Résous l'équation 3(x + 4) = 2x + 18.", a:6}
+        ]
+      }
     ]
-},
+  },
 
-fonctions: {
-
-    title:"Les fonctions",
-    number:"CHAPITRE 03",
-
-    description:
-    "Les fonctions permettent de modéliser l'évolution des coûts, " +
-    "des recettes et des bénéfices. Elles sont également utiles " +
-    "pour comprendre les mécanismes de l'offre et de la demande.",
-
-    objectives:[
-        "Je comprends la notion de fonction.",
-        "Je sais calculer une image.",
-        "Je sais identifier une fonction affine.",
-        "Je sais interpréter un graphique.",
-        "Je sais utiliser une fonction dans un problème économique."
+  fonctions: {
+    title: "Les fonctions",
+    description: "Calculer des images et des antécédents et interpréter des fonctions simples.",
+    objectives: [
+      "Calculer l'image d'un nombre par une fonction.",
+      "Déterminer un antécédent.",
+      "Interpréter une fonction dans un contexte économique.",
+      "Lire et représenter graphiquement une fonction."
     ],
-
-    levels:[
-
-        {
-            name:"Les bases",
-            description:"Je découvre les fonctions à partir de situations simples.",
-
-            exercises:[
-                {
-                    question:"Une entreprise vend un produit 10 € pièce. Sa recette est R(x) = 10x. Quelle recette réalise-t-elle en vendant 5 produits ?",
-                    answer:50
-                },
-                {
-                    question:"Le coût d'une livraison est C(x) = 5x. Quel est le coût pour 8 livraisons ?",
-                    answer:40
-                },
-                {
-                    question:"Une entreprise réalise une recette R(x) = 15x. Quelle quantité doit-elle vendre pour obtenir 150 € de recettes ?",
-                    answer:10
-                }
-            ]
-        },
-
-        {
-            name:"Intermédiaire",
-            description:"J'étudie des fonctions affines et je les interprète en gestion.",
-
-            exercises:[
-                {
-                    question:"Le coût de production est C(x) = 200 + 5x. Calcule le coût de production de 40 unités.",
-                    answer:400
-                },
-                {
-                    question:"Une entreprise vend ses produits 20 € pièce. Sa recette est R(x) = 20x. Calcule la recette pour 75 unités.",
-                    answer:1500
-                },
-                {
-                    question:"Le bénéfice d'une entreprise est B(x) = 12x - 300. Quel est le bénéfice pour 50 produits vendus ?",
-                    answer:300
-                }
-            ]
-        },
-
-        {
-            name:"Objectif à atteindre",
-            description:"J'utilise les fonctions pour analyser une situation économique et prendre une décision.",
-
-            exercises:[
-                {
-                    question:"Une entreprise a une recette R(x) = 20x et un coût C(x) = 200 + 10x. Quel est le nombre minimal d'unités à vendre pour réaliser un bénéfice strictement positif ?",
-                    answer:21
-                },
-                {
-                    question:"La demande est D(p) = 100 - 2p et l'offre est O(p) = 20 + 2p. Quel est le prix d'équilibre du marché ?",
-                    answer:20
-                },
-                {
-                    question:"Une entreprise a un bénéfice B(x) = 15x - 300. À partir de combien d'unités vendues son bénéfice devient-il strictement positif ?",
-                    answer:21
-                }
-            ]
-        }
-
+    levels: [
+      {
+        name: "Les bases",
+        exercises: [
+          {q:"Soit R(x) = 10x. Calcule R(5).", a:50},
+          {q:"Soit f(x) = 5x. Calcule f(8).", a:40},
+          {q:"Soit R(x) = 15x. Pour quelle valeur de x obtient-on R(x) = 150 ?", a:10},
+          {q:"Soit f(x) = 2x + 3. Calcule f(4).", a:11}
+        ]
+      },
+      {
+        name: "Intermédiaire",
+        exercises: [
+          {q:"Le coût total est C(x) = 200 + 5x. Calcule le coût pour 40 produits.", a:400},
+          {q:"La recette est R(x) = 20x. Calcule la recette pour 75 produits.", a:1500},
+          {q:"Le bénéfice est B(x) = 12x − 300. Calcule B(50).", a:300},
+          {q:"Soit f(x) = 3x + 7. Détermine l'antécédent de 31.", a:8}
+        ]
+      },
+      {
+        name: "Objectif à atteindre",
+        exercises: [
+          {q:"Une entreprise a une recette R(x) = 20x et un coût C(x) = 200 + 10x. À partir de combien de produits son bénéfice est-il strictement positif ? Donne le plus petit nombre entier.", a:21},
+          {q:"La demande est D(p) = 100 − 2p et l'offre O(p) = 20 + 2p. Quel est le prix d'équilibre ?", a:20},
+          {q:"Le bénéfice est B(x) = 15x − 300. À partir de combien de produits le bénéfice est-il strictement positif ? Donne le plus petit nombre entier.", a:21},
+          {q:"Soit f(x) = 2x + 5. Détermine l'antécédent de 35.", a:15}
+        ]
+      }
     ]
-}
-
+  }
 };
 
-
-// =====================================
-// 2. SAUVEGARDE LOCALE
-// =====================================
-
-const STORAGE_KEY = "mathsEconomieProgression";
-
-function loadProgress() {
-    try {
-        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-    } catch(e) {
-        return {};
-    }
-}
-
-let progress = loadProgress();
-
-function saveProgress() {
-    try {
-        localStorage.setItem(STORAGE_KEY,JSON.stringify(progress));
-    } catch(e) {
-        console.warn("Sauvegarde indisponible.");
-    }
-}
-
-
-// =====================================
-// 3. NAVIGATION
-// =====================================
+let currentChapter = null;
+let currentLevel = 0;
 
 function showHome() {
-
-    document.getElementById("home").classList.remove("hidden");
-    document.getElementById("chapter-page").classList.add("hidden");
-
-    updateProgress();
-
-    window.scrollTo({top:0,behavior:"smooth"});
+  hideAllPages();
+  document.getElementById('homePage').classList.remove('hidden');
+  setActiveNav('homeNav');
 }
 
-function openChapter(id) {
-
-    const chapter = chapters[id];
-
-    document.getElementById("home").classList.add("hidden");
-    document.getElementById("chapter-page").classList.remove("hidden");
-
-    let html = `
-
-        <div class="chapter-intro">
-            <div class="chapter-number">${chapter.number}</div>
-            <h1>${chapter.title}</h1>
-            <p>${chapter.description}</p>
-        </div>
-
-        <section>
-            <h2>Mes objectifs</h2>
-            <p>Vérifie les compétences que tu maîtrises.</p>
-
-            <div class="objectives">
-    `;
-
-    chapter.objectives.forEach((objective,index) => {
-
-        const key = id + "-" + index;
-        const checked = progress[key] ? "checked" : "";
-
-        html += `
-            <div class="objective">
-                <input
-                    type="checkbox"
-                    class="goal"
-                    id="goal-${key}"
-                    data-key="${key}"
-                    ${checked}
-                >
-                <label for="goal-${key}">${objective}</label>
-            </div>
-        `;
-
-    });
-
-    html += `
-            </div>
-        </section>
-
-        <section>
-
-            <h2>Je m'entraîne à mon rythme</h2>
-
-            <p>
-                Choisis le niveau qui correspond à tes besoins.
-                Tu peux passer au niveau suivant lorsque tu te sens prêt.
-            </p>
-
-            <div class="level-tabs">
-    `;
-
-    chapter.levels.forEach((level,index) => {
-
-        html += `
-            <button
-                class="level-button ${index === 0 ? "active" : ""}"
-                id="level-button-${index}"
-                onclick="showLevel('${id}',${index})">
-
-                <strong>${index + 1}. ${level.name}</strong>
-                <small>${level.exercises.length} exercices</small>
-
-            </button>
-        `;
-
-    });
-
-    html += `
-            </div>
-
-            <div id="level-content"></div>
-
-        </section>
-    `;
-
-    // LABORATOIRE GEOGEBRA
-
-    if(id === "fonctions") {
-
-        html += `
-
-            <section class="geogebra-section">
-
-                <h2>Mon laboratoire de fonctions</h2>
-
-                <p>
-                    Place-toi dans la peau d'un analyste économique !
-                    Observe les relations entre les coûts, les recettes
-                    et les bénéfices.
-                </p>
-
-                <div class="exercise">
-
-                    <h3>Expérimente avec GeoGebra</h3>
-
-                    <p>Entre les fonctions suivantes :</p>
-
-                    <p><strong>C(x) = 200 + 5x</strong> : coût de production.</p>
-                    <p><strong>R(x) = 20x</strong> : recette.</p>
-                    <p><strong>B(x) = 15x - 200</strong> : bénéfice.</p>
-
-                    <p>
-                        Observe les graphiques et identifie
-                        les situations où l'entreprise réalise un bénéfice.
-                    </p>
-
-                    <div class="geogebra-frame">
-
-                        <iframe
-                            src="https://www.geogebra.org/calculator?lang=fr"
-                            title="Calculatrice graphique GeoGebra"
-                            loading="lazy"
-                            allowfullscreen>
-                        </iframe>
-
-                    </div>
-
-                    <a
-                        class="geogebra-link"
-                        href="https://www.geogebra.org/graphing?lang=fr"
-                        target="_blank"
-                        rel="noopener noreferrer">
-
-                        Ouvrir GeoGebra dans un nouvel onglet →
-
-                    </a>
-
-                </div>
-
-                <div class="geogebra-tasks">
-
-                    <h3>Défi : l'équilibre du marché</h3>
-
-                    <p>
-                        En microéconomie, on peut représenter
-                        une fonction d'offre et une fonction de demande.
-                    </p>
-
-                    <p><strong>Demande : D(p) = 100 - 2p</strong></p>
-                    <p><strong>Offre : O(p) = 20 + 2p</strong></p>
-
-                    <p>
-                        Dans GeoGebra, représente ces deux fonctions
-                        et cherche leur point d'intersection.
-                    </p>
-
-                    <ol>
-                        <li>Quel est le prix d'équilibre ?</li>
-                        <li>Quelle est la quantité échangée ?</li>
-                        <li>Que se passe-t-il si le prix est supérieur au prix d'équilibre ?</li>
-                    </ol>
-
-                </div>
-
-            </section>
-
-        `;
-
-    }
-
-    document.getElementById("chapter-content").innerHTML = html;
-
-    document.querySelectorAll(".goal").forEach(goal => {
-
-        goal.addEventListener("change",function() {
-
-            progress[this.dataset.key] = this.checked;
-
-            saveProgress();
-            updateProgress();
-
-        });
-
-    });
-
-    showLevel(id,0);
-
-    window.scrollTo({top:0,behavior:"smooth"});
-
+function showSection(section) {
+  hideAllPages();
+  if(section === 'math') {
+    document.getElementById('mathPage').classList.remove('hidden');
+    setActiveNav('mathNav');
+  } else {
+    document.getElementById('economyPage').classList.remove('hidden');
+    setActiveNav('economyNav');
+  }
 }
 
-
-// =====================================
-// 4. AFFICHER UN NIVEAU
-// =====================================
-
-function showLevel(id,index) {
-
-    const chapter = chapters[id];
-    const level = chapter.levels[index];
-
-    document.querySelectorAll(".level-button").forEach(button => {
-        button.classList.remove("active");
-    });
-
-    document.getElementById("level-button-" + index)
-        .classList.add("active");
-
-    let html = `
-
-        <div class="level-description">
-
-            <h3>${level.name}</h3>
-
-            <p>${level.description}</p>
-
-        </div>
-
-    `;
-
-    level.exercises.forEach((exercise,exerciseIndex) => {
-
-        html += createExercise(
-            exercise,
-            id + "-" + index + "-" + exerciseIndex,
-            "EXERCICE " + (exerciseIndex + 1)
-        );
-
-    });
-
-    document.getElementById("level-content").innerHTML = html;
-
+function hideAllPages() {
+  ['homePage','mathPage','economyPage'].forEach(id =>
+    document.getElementById(id).classList.add('hidden')
+  );
 }
 
-
-// =====================================
-// 5. CONSTRUCTION DES EXERCICES
-// =====================================
-
-function createExercise(exercise,id,label) {
-
-    return `
-
-        <div class="exercise">
-
-            <div class="chapter-number">${label}</div>
-
-            <p>${exercise.question}</p>
-
-            <input
-                type="number"
-                step="any"
-                id="answer-${id}"
-                placeholder="Ta réponse"
-            >
-
-            <br>
-
-            <button onclick="checkAnswer('${id}',${exercise.answer})">
-                Vérifier ma réponse
-            </button>
-
-            <div class="feedback" id="feedback-${id}" aria-live="polite"></div>
-
-        </div>
-
-    `;
-
+function setActiveNav(id) {
+  document.querySelectorAll('.nav-button').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
 }
 
-
-// =====================================
-// 6. CORRECTION
-// =====================================
-
-function checkAnswer(id,correctAnswer) {
-
-    const input = document.getElementById("answer-" + id);
-    const feedback = document.getElementById("feedback-" + id);
-
-    if(input.value.trim() === "") {
-
-        feedback.textContent = "Entre une réponse avant de vérifier.";
-        feedback.className = "feedback error";
-
-        return;
-    }
-
-    if(Math.abs(Number(input.value)-correctAnswer) < 0.000001) {
-
-        feedback.textContent = "Bravo ! C'est la bonne réponse.";
-        feedback.className = "feedback success";
-
-    } else {
-
-        feedback.textContent = "Ce n'est pas encore ça. Relis l'énoncé et réessaie.";
-        feedback.className = "feedback error";
-
-    }
-
+function openChapter(key) {
+  currentChapter = key;
+  currentLevel = 0;
+  document.getElementById('chapterContent').classList.remove('hidden');
+  renderChapter();
+  document.getElementById('chapterContent').scrollIntoView({behavior:'smooth'});
 }
 
+function renderChapter() {
+  const chapter = chapters[currentChapter];
+  const content = document.getElementById('chapterContent');
 
-// =====================================
-// 7. PROGRESSION GLOBALE
-// =====================================
+  const objectives = chapter.objectives.map((objective, index) => `
+    <label>
+      <input type="checkbox" onchange="saveObjective('${currentChapter}',${index},this.checked)"
+      ${getObjective(currentChapter,index) ? 'checked' : ''}>
+      ${objective}
+    </label>
+  `).join('');
+
+  const levelNames = ['Les bases','Intermédiaire','Objectif à atteindre'];
+  const levelClasses = ['basic','middle','target'];
+  const levelTags = ['level-basic','level-middle','level-target'];
+
+  const levelButtons = levelNames.map((name,index) => `
+    <button class="level-button ${levelClasses[index]} ${currentLevel===index?'selected':''}"
+      onclick="selectLevel(${index})">${index+1} · ${name}</button>
+  `).join('');
+
+  const exercises = chapter.levels[currentLevel].exercises.map((exercise,index) =>
+    exerciseHTML(exercise, `${currentChapter}_${currentLevel}_${index}`, levelTags[currentLevel])
+  ).join('');
+
+  content.innerHTML = `
+    <div class="chapter-top">
+      <div>
+        <h2>${chapter.title}</h2>
+        <p class="intro">${chapter.description}</p>
+      </div>
+      <button class="secondary-button" onclick="closeChapter()">← Liste des chapitres</button>
+    </div>
+
+    <div class="objectives">
+      <h3>Les objectifs du chapitre</h3>
+      ${objectives}
+      <div class="progress-track"><div class="progress-fill" id="chapterProgress"></div></div>
+      <p id="progressLabel"></p>
+    </div>
+
+    <h3>Choisis ton niveau</h3>
+    <div class="level-legend">
+      <span class="level-tag level-basic">Vert · Les bases</span>
+      <span class="level-tag level-middle">Orange · Intermédiaire</span>
+      <span class="level-tag level-target">Violet · Objectif à atteindre</span>
+    </div>
+
+    <div class="level-buttons">${levelButtons}</div>
+
+    <p class="intro">${chapter.levels[currentLevel].name} : prends le temps de résoudre
+    chaque exercice sur papier avant de vérifier ta réponse.</p>
+
+    ${exercises}
+
+    ${currentChapter === 'fonctions' ? `
+      <div class="economy-topic">
+        <h3>Explorer les fonctions avec GeoGebra</h3>
+        <p>Tu peux utiliser GeoGebra pour représenter graphiquement une fonction.
+        Essaie par exemple de saisir : y = 2x + 5, puis y = 20x et y = 200 + 10x.</p>
+        <iframe class="geogebra" src="https://www.geogebra.org/calculator?lang=fr"
+          title="Calculatrice graphique GeoGebra"></iframe>
+        <p><a href="https://www.geogebra.org/graphing?lang=fr" target="_blank" rel="noopener">
+          Ouvrir GeoGebra dans un nouvel onglet
+        </a></p>
+      </div>
+    ` : ''}
+  `;
+
+  updateProgress();
+}
+
+function exerciseHTML(exercise,id,levelClass) {
+  return `
+    <div class="exercise">
+      <span class="level-tag ${levelClass}">${['Les bases','Intermédiaire','Objectif à atteindre'][currentLevel]}</span>
+      <h4>Exercice</h4>
+      <p>${exercise.q}</p>
+      <div class="answer-row">
+        <input type="text" id="answer_${id}" placeholder="Ta réponse">
+        <button class="check-button" onclick="checkAnswer('answer_${id}',${exercise.a},'feedback_${id}')">
+          Vérifier ma réponse
+        </button>
+      </div>
+      <div class="feedback" id="feedback_${id}"></div>
+    </div>
+  `;
+}
+
+function selectLevel(level) {
+  currentLevel = level;
+  renderChapter();
+}
+
+function closeChapter() {
+  document.getElementById('chapterContent').classList.add('hidden');
+}
+
+function checkAnswer(inputId,correct,feedbackId) {
+  const input = document.getElementById(inputId);
+  const feedback = document.getElementById(feedbackId);
+  const value = parseFloat(input.value.trim().replace(',','.').replace(/\s/g,''));
+
+  if(input.value.trim() === '' || isNaN(value)) {
+    feedback.textContent = 'Entre une réponse numérique pour effectuer la vérification.';
+    feedback.className = 'feedback incorrect';
+    return;
+  }
+
+  if(Math.abs(value-correct) < 0.011) {
+    feedback.textContent = '✓ Bonne réponse ! Ton résultat est correct.';
+    feedback.className = 'feedback correct';
+  } else {
+    feedback.textContent = '✗ Ce résultat ne semble pas correct. Reprends ton raisonnement et vérifie tes calculs.';
+    feedback.className = 'feedback incorrect';
+  }
+}
+
+function checkText(inputId,correct,feedbackId) {
+  const value = document.getElementById(inputId).value.trim().toLowerCase();
+  const feedback = document.getElementById(feedbackId);
+  const expected = correct.toLowerCase();
+
+  if(value === '') {
+    feedback.textContent = 'Entre une réponse avant de vérifier.';
+    feedback.className = 'feedback incorrect';
+  } else if(value.includes(expected)) {
+    feedback.textContent = '✓ Bonne réponse !';
+    feedback.className = 'feedback correct';
+  } else {
+    feedback.textContent = '✗ Ce n’est pas la réponse attendue. Relis la question et les notions du cours.';
+    feedback.className = 'feedback incorrect';
+  }
+}
+
+function saveObjective(chapter,index,checked) {
+  const key = `objective_${chapter}_${index}`;
+  localStorage.setItem(key,checked);
+  updateProgress();
+}
+
+function getObjective(chapter,index) {
+  return localStorage.getItem(`objective_${chapter}_${index}`) === 'true';
+}
 
 function updateProgress() {
+  if(!currentChapter) return;
+  const total = chapters[currentChapter].objectives.length;
+  let done = 0;
+  for(let i=0;i<total;i++) {
+    if(getObjective(currentChapter,i)) done++;
+  }
+  const percent = Math.round(done/total*100);
+  const bar = document.getElementById('chapterProgress');
+  const label = document.getElementById('progressLabel');
+  if(bar) bar.style.width = percent + '%';
+  if(label) label.textContent = `${done} objectif(s) validé(s) sur ${total} · ${percent} %`;
+}
 
-    let total = 0;
-    let checked = 0;
-
-    Object.keys(chapters).forEach(id => {
-
-        chapters[id].objectives.forEach((objective,index) => {
-
-            total++;
-
-            if(progress[id + "-" + index]) {
-                checked++;
-            }
-
-        });
-
+function generateReview() {
+  const allExercises = [];
+  Object.keys(chapters).forEach(key => {
+    chapters[key].levels.forEach((level,levelIndex) => {
+      level.exercises.forEach(exercise => {
+        allExercises.push({...exercise, chapter:chapters[key].title, level:levelIndex});
+      });
     });
+  });
 
-    const percentage = total
-        ? Math.round((checked/total)*100)
-        : 0;
+  allExercises.sort(() => Math.random() - 0.5);
+  const selected = allExercises.slice(0,5);
 
-    document.getElementById("progress-value").textContent =
-        percentage + " %";
-
-    document.getElementById("progress-fill").style.width =
-        percentage + "%";
-
+  document.getElementById('reviewExercises').innerHTML = selected.map((exercise,index) => {
+    const levelClasses = ['level-basic','level-middle','level-target'];
+    const levelNames = ['Les bases','Intermédiaire','Objectif à atteindre'];
+    return `
+      <div class="review-card">
+        <span class="level-tag ${levelClasses[exercise.level]}">${levelNames[exercise.level]}</span>
+        <p><strong>${exercise.chapter}</strong></p>
+        <p>${exercise.q}</p>
+        <div class="answer-row">
+          <input type="text" id="review_${index}" placeholder="Ta réponse">
+          <button class="check-button" onclick="checkAnswer('review_${index}',${exercise.a},'review_feedback_${index}')">
+            Vérifier
+          </button>
+        </div>
+        <div class="feedback" id="review_feedback_${index}"></div>
+      </div>
+    `;
+  }).join('');
 }
 
-
-// =====================================
-// 8. BANQUE D'EXERCICES GÉNÉRALE
-// =====================================
-
-const allExercises = [];
-
-Object.keys(chapters).forEach(id => {
-
-    chapters[id].levels.forEach((level,levelIndex) => {
-
-        level.exercises.forEach(exercise => {
-
-            allExercises.push({
-
-                ...exercise,
-
-                chapter:chapters[id].title,
-                level:level.name
-
-            });
-
-        });
-
-    });
-
-});
-
-
-// =====================================
-// 9. MÉLANGE ALÉATOIRE
-// =====================================
-
-function shuffleArray(array) {
-
-    const shuffled = [...array];
-
-    for(let i=shuffled.length-1;i>0;i--) {
-
-        const j = Math.floor(Math.random()*(i+1));
-
-        [shuffled[i],shuffled[j]] =
-        [shuffled[j],shuffled[i]];
-
-    }
-
-    return shuffled;
-
-}
-
-
-// =====================================
-// 10. RÉVISIONS GÉNÉRALES
-// =====================================
-
-function generateMixedExercises() {
-
-    const selected = shuffleArray(allExercises).slice(0,5);
-
-    const container = document.getElementById("mixed-exercises");
-
-    container.innerHTML = selected.map((exercise,index) => {
-
-        return `
-
-            <div class="mixed-tag">
-                QUESTION ${index+1} / 5 · ${exercise.chapter}
-                · ${exercise.level}
-            </div>
-
-            ${createExercise(
-                exercise,
-                "mixed-" + index,
-                "RÉVISION GÉNÉRALE"
-            )}
-
-        `;
-
-    }).join("");
-
-}
-
-
-// =====================================
-// 11. INITIALISATION
-// =====================================
-
-updateProgress();
-generateMixedExercises();
-
+generateReview();
 </script>
 
 </body>
