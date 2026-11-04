@@ -5,30 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercices de Mathématiques</title>
     
-    <!-- Importation de la police Source Sans Pro depuis Google Fonts -->
+    <!-- Importation de la police Source Sans Pro -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-    <!-- Chargement de MathJax pour de superbes formules mathématiques -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>
+    <!-- Configuration correcte de MathJax pour les formules en ligne et bloc -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <style>
+        /* Fond global de la page et police */
         body {
-            /* Application de la police Source Sans Pro à tout le document */
             font-family: 'Source Sans Pro', sans-serif;
             background-color: #E6E6E1;
             color: #8C8B82;
             max-width: 700px;
             margin: 40px auto;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            background-color: #ffffff; /* Garde l'encadré principal blanc pour la lisibilité */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
-        /* Couleur des titres principaux et secondaires */
+        /* Titres en #8DA6D6 */
         h1, h3 {
             color: #8DA6D6;
         }
@@ -37,12 +44,19 @@
             text-align: center;
         }
 
+        /* Style des blocs d'exercices */
         .exercice {
-            background: #f9fbfb;
+            background: #ffffff;
             border-left: 5px solid #8DA6D6;
-            padding: 15px 20px;
+            padding: 20px;
             margin: 20px 0;
-            border-radius: 4px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        /* Tous les textes de description et paragraphes en #8C8B82 */
+        p, label, span {
+            color: #8C8B82;
         }
 
         button {
@@ -55,6 +69,7 @@
             font-size: 16px;
             font-family: 'Source Sans Pro', sans-serif;
             margin-top: 10px;
+            transition: background 0.2s;
         }
 
         button:hover {
@@ -68,6 +83,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             font-family: 'Source Sans Pro', sans-serif;
+            color: #333;
         }
 
         .feedback {
@@ -79,7 +95,7 @@
 <body>
 
     <h1>Entraînement de Mathématiques</h1>
-    <p>Résolvez les exercices ci-dessous et validez vos réponses.</p>
+    <p style="text-align: center;">Résolvez les exercices ci-dessous et validez vos réponses.</p>
 
     <!-- EXERCICE 1 -->
     <div class="exercice">
@@ -87,6 +103,7 @@
         <p>Résolvez l'équation suivante : \(3x - 5 = 10\)</p>
         <p>Donnez la valeur de \(x\) (si c'est une fraction, écrivez-la sous forme décimale, ex: 2.5) :</p>
         <input type="text" id="rep1" placeholder="Votre réponse">
+        <br>
         <button onclick="verifier1()">Valider</button>
         <div id="feedback1" class="feedback"></div>
     </div>
@@ -96,12 +113,13 @@
         <h3>Exercice 2 : Calcul de dérivée</h3>
         <p>Soit la fonction \(f(x) = 2x^3 - 4x + 1\). Quel est le coefficient directeur de la tangente en \(x = 1\), c'est-à-dire la valeur de \(f'(1)\) ?</p>
         <input type="number" id="rep2" placeholder="Votre réponse">
+        <br>
         <button onclick="verifier2()">Valider</button>
         <div id="feedback2" class="feedback"></div>
     </div>
 
     <script>
-        // Correction Exercice 1 (3x - 5 = 10 => 3x = 15 => x = 5)
+        // Correction Exercice 1
         function verifier1() {
             let val = document.getElementById('rep1').value.trim().replace(',', '.');
             let feed = document.getElementById('feedback1');
@@ -110,21 +128,24 @@
                 feed.style.color = "#27ae60";
             } else {
                 feed.innerHTML = "❌ Incorrect. Indice : isolez d'abord 3x en ajoutant 5 des deux côtés.";
-                feed.style.color = "#e74c3c";
+                feed.style.color = "#c0392b";
             }
         }
 
-        // Correction Exercice 2 (f'(x) = 6x^2 - 4 => f'(1) = 6(1)^2 - 4 = 2)
+        // Correction Exercice 2
         function verifier2() {
             let val = document.getElementById('rep2').value.trim();
             let feed = document.getElementById('feedback2');
             if (val === "2") {
-                feed.innerHTML = "🎉 Correct ! La dérivée est \(f'(x) = 6x^2 - 4\).";
+                feed.innerHTML = "🎉 Correct ! La dérivée est \\(f'(x) = 6x^2 - 4\\).";
                 feed.style.color = "#27ae60";
-                MathJax.typeset();
+                // Demande à MathJax de relire la page pour afficher la nouvelle formule injectée
+                if (window.MathJax) {
+                    MathJax.typeset();
+                }
             } else {
                 feed.innerHTML = "❌ Incorrect. Pensez à dériver chaque terme séparément.";
-                feed.style.color = "#e74c3c";
+                feed.style.color = "#c0392b";
             }
         }
     </script>
