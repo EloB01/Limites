@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Mon espace mathématiques</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,424 +12,388 @@
 
 <style>
 :root {
-    --purple: #5B57A2;
-    --background: #FFFFFF;
-    --exercise: #E8E2DE;
-    --check: #C6C0B4;
-    --text: #8C8B82;
-    --dark: #55544E;
-    --light: #F7F5F3;
+    --purple:#5B57A2;
+    --background:#FFFFFF;
+    --exercise:#E8E2DE;
+    --check:#C6C0B4;
+    --text:#8C8B82;
+    --dark:#55544E;
+    --light:#F7F5F3;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior:smooth; }
 
 body {
-    font-family: 'Source Sans 3', sans-serif;
-    background: var(--background);
-    color: var(--text);
-    line-height: 1.6;
+    font-family:'Source Sans 3',sans-serif;
+    background:var(--background);
+    color:var(--text);
+    line-height:1.6;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 22px 8%;
-    border-bottom: 1px solid #F0EEEC;
-    flex-wrap: wrap;
-    gap: 15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 8%;
+    border-bottom:1px solid #F0EEEC;
+    flex-wrap:wrap;
+    gap:15px;
 }
 
 .logo {
-    color: var(--purple);
-    font-size: 23px;
-    font-weight: 700;
+    color:var(--purple);
+    font-size:23px;
+    font-weight:700;
 }
 
 nav {
-    display: flex;
-    gap: 25px;
-    flex-wrap: wrap;
+    display:flex;
+    gap:25px;
+    flex-wrap:wrap;
 }
 
 nav a {
-    color: var(--text);
-    text-decoration: none;
-    cursor: pointer;
+    color:var(--text);
+    text-decoration:none;
+    cursor:pointer;
 }
 
-nav a:hover {
-    color: var(--purple);
-}
+nav a:hover { color:var(--purple); }
 
 .student {
-    color: var(--purple);
-    font-weight: 600;
+    color:var(--purple);
+    font-weight:600;
 }
 
 main {
-    max-width: 1100px;
-    margin: 50px auto;
-    padding: 0 25px;
+    max-width:1100px;
+    margin:50px auto;
+    padding:0 25px;
 }
 
-h1, h2, h3 {
-    color: var(--purple);
-    font-weight: 600;
+h1,h2,h3 {
+    color:var(--purple);
+    font-weight:600;
 }
 
-h1 {
-    font-size: 36px;
-    margin-bottom: 8px;
-}
+h1 { font-size:36px; margin-bottom:8px; }
+h2 { font-size:26px; margin-bottom:12px; }
+h3 { font-size:19px; margin-bottom:8px; }
 
-h2 {
-    font-size: 26px;
-    margin-bottom: 12px;
-}
+p { margin-bottom:8px; }
 
-h3 {
-    font-size: 19px;
-    margin-bottom: 8px;
-}
+section { margin-bottom:55px; }
 
-p {
-    margin-bottom: 8px;
-}
-
-section {
-    margin-bottom: 55px;
-}
-
-.hidden {
-    display: none !important;
-}
+.hidden { display:none !important; }
 
 /* ACCUEIL */
 
-.intro {
-    margin-bottom: 35px;
-}
-
-.intro p {
-    font-size: 17px;
-}
-
-/* PROGRESSION */
+.intro { margin-bottom:35px; }
+.intro p { font-size:17px; }
 
 .progress-card {
-    background: var(--light);
-    border-radius: 14px;
-    padding: 23px;
-    margin-bottom: 45px;
+    background:var(--light);
+    border-radius:14px;
+    padding:23px;
+    margin-bottom:45px;
 }
 
 .progress-top {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
 }
 
 .progress-bar {
-    height: 10px;
-    background: #E5E1DD;
-    border-radius: 20px;
-    overflow: hidden;
+    height:10px;
+    background:#E5E1DD;
+    border-radius:20px;
+    overflow:hidden;
 }
 
 .progress-fill {
-    height: 100%;
-    width: 0%;
-    background: var(--purple);
-    transition: width .3s;
+    height:100%;
+    width:0;
+    background:var(--purple);
+    transition:width .3s;
 }
 
 /* CHAPITRES */
 
 .chapters {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    margin-top: 22px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:22px;
 }
 
 .chapter {
-    display: block;
-    width: 100%;
-    text-align: left;
-    border: 1px solid #EAE7E4;
-    border-radius: 12px;
-    padding: 23px;
-    background: white;
-    cursor: pointer;
-    transition: .2s;
+    width:100%;
+    text-align:left;
+    border:1px solid #EAE7E4;
+    border-radius:12px;
+    padding:23px;
+    background:white;
+    cursor:pointer;
+    transition:.2s;
 }
 
 .chapter:hover {
-    border-color: var(--purple);
-    transform: translateY(-3px);
-    background: #FAF9FB;
+    border-color:var(--purple);
+    transform:translateY(-3px);
+    background:#FAF9FB;
 }
 
 .chapter-number {
-    font-size: 13px;
-    margin-bottom: 9px;
-    color: var(--text);
-    letter-spacing: .5px;
+    font-size:13px;
+    margin-bottom:9px;
+    letter-spacing:.5px;
 }
 
-.chapter h3 {
-    margin-bottom: 8px;
-}
-
-.chapter p {
-    font-size: 14px;
-    color: var(--text);
-}
+.chapter h3 { margin-bottom:8px; }
+.chapter p { font-size:14px; }
 
 .arrow {
-    display: block;
-    text-align: right;
-    color: var(--purple);
-    margin-top: 12px;
-    font-size: 20px;
+    display:block;
+    text-align:right;
+    color:var(--purple);
+    margin-top:12px;
+    font-size:20px;
 }
 
-/* PAGES CHAPITRES */
+/* CHAPITRES */
 
 .back-button {
-    background: none;
-    color: var(--purple);
-    border: 1px solid var(--check);
-    padding: 8px 16px;
-    margin-bottom: 25px;
+    background:none;
+    color:var(--purple);
+    border:1px solid var(--check);
+    padding:8px 16px;
+    margin-bottom:25px;
 }
 
 .chapter-intro {
-    background: var(--light);
-    padding: 25px;
-    border-radius: 12px;
-    margin: 20px 0 30px;
+    background:var(--light);
+    padding:25px;
+    border-radius:12px;
+    margin:20px 0 30px;
 }
 
 .objectives {
-    background: #F8F7F5;
-    padding: 22px;
-    border-radius: 12px;
-    margin: 20px 0 35px;
+    background:#F8F7F5;
+    padding:22px;
+    border-radius:12px;
+    margin:20px 0 35px;
 }
 
 .objective {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid #EAE7E4;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:10px 0;
+    border-bottom:1px solid #EAE7E4;
 }
 
-.objective:last-child {
-    border-bottom: none;
-}
+.objective:last-child { border-bottom:none; }
 
 .objective input {
-    appearance: none;
-    width: 19px;
-    height: 19px;
-    border: 1px solid var(--check);
-    border-radius: 5px;
-    cursor: pointer;
-    flex-shrink: 0;
+    appearance:none;
+    width:19px;
+    height:19px;
+    border:1px solid var(--check);
+    border-radius:5px;
+    cursor:pointer;
+    flex-shrink:0;
 }
 
 .objective input:checked {
-    background: var(--check);
-    box-shadow: inset 0 0 0 4px white;
+    background:var(--check);
+    box-shadow:inset 0 0 0 4px white;
 }
 
 .objective input:checked + label {
-    text-decoration: line-through;
-    opacity: .6;
+    text-decoration:line-through;
+    opacity:.6;
 }
 
-.objective label {
-    cursor: pointer;
+/* NIVEAUX */
+
+.level-intro {
+    margin:30px 0 20px;
+}
+
+.level-tabs {
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin:20px 0 25px;
+}
+
+.level-button {
+    flex:1;
+    min-width:150px;
+    background:white;
+    color:var(--text);
+    border:1px solid #DED9D4;
+    padding:14px;
+    text-align:left;
+    border-radius:10px;
+}
+
+.level-button strong {
+    display:block;
+    color:var(--purple);
+    font-size:16px;
+}
+
+.level-button small {
+    display:block;
+    font-weight:400;
+    margin-top:4px;
+}
+
+.level-button.active {
+    background:#F1EFF8;
+    border:1px solid var(--purple);
+}
+
+.level-description {
+    background:#F8F7F5;
+    border-radius:10px;
+    padding:17px 20px;
+    margin-bottom:20px;
 }
 
 /* EXERCICES */
 
 .exercise {
-    background: var(--exercise);
-    border-radius: 13px;
-    padding: 25px;
-    margin: 18px 0;
+    background:var(--exercise);
+    border-radius:13px;
+    padding:25px;
+    margin:18px 0;
 }
 
-.exercise p {
-    margin: 10px 0;
-}
+.exercise p { margin:10px 0; }
 
 .exercise input[type="number"] {
-    width: 180px;
-    padding: 10px;
-    border: 1px solid #D0C9C3;
-    border-radius: 7px;
-    background: white;
-    font-family: inherit;
-    font-size: 16px;
-    color: var(--dark);
+    width:190px;
+    max-width:100%;
+    padding:10px;
+    border:1px solid #D0C9C3;
+    border-radius:7px;
+    background:white;
+    font-family:inherit;
+    font-size:16px;
+    color:var(--dark);
 }
 
 button {
-    background: var(--purple);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 7px;
-    font-family: inherit;
-    font-size: 15px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: .2s;
+    background:var(--purple);
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:7px;
+    font-family:inherit;
+    font-size:15px;
+    cursor:pointer;
+    margin-top:10px;
 }
 
-button:hover {
-    opacity: .85;
-}
+button:hover { opacity:.85; }
 
 .feedback {
-    margin-top: 12px;
-    font-weight: 600;
+    margin-top:12px;
+    font-weight:600;
 }
 
-.success {
-    color: #47785C;
-}
-
-.error {
-    color: #A45D58;
-}
+.success { color:#47785C; }
+.error { color:#A45D58; }
 
 /* GEOGEBRA */
 
-.geogebra-section {
-    margin-top: 45px;
-}
-
-.geogebra-intro {
-    margin-bottom: 20px;
-}
+.geogebra-section { margin-top:45px; }
 
 .geogebra-frame {
-    width: 100%;
-    height: 560px;
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 20px 0;
-    border: 1px solid #DDD7D2;
+    width:100%;
+    height:560px;
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    margin:20px 0;
+    border:1px solid #DDD7D2;
 }
 
 .geogebra-frame iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-.geogebra-tasks {
-    background: #F8F7F5;
-    border-radius: 12px;
-    padding: 23px;
-    margin-top: 25px;
-}
-
-.geogebra-tasks li {
-    margin: 10px 0 10px 22px;
+    width:100%;
+    height:100%;
+    border:0;
 }
 
 .geogebra-link {
-    color: var(--purple);
-    font-weight: 600;
-    text-decoration: none;
+    color:var(--purple);
+    font-weight:600;
+    text-decoration:none;
 }
 
-.geogebra-link:hover {
-    text-decoration: underline;
+.geogebra-tasks {
+    background:#F8F7F5;
+    border-radius:12px;
+    padding:23px;
+    margin-top:25px;
 }
 
-/* RÉVISIONS */
+.geogebra-tasks li {
+    margin:10px 0 10px 22px;
+}
+
+/* RÉVISIONS GÉNÉRALES */
 
 .mixed-section {
-    margin-top: 65px;
-    border-top: 1px solid #EAE7E4;
-    padding-top: 40px;
+    margin-top:65px;
+    border-top:1px solid #EAE7E4;
+    padding-top:40px;
 }
 
 .mixed-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-bottom:20px;
 }
 
 .mixed-label {
-    font-size: 13px;
-    letter-spacing: 1px;
-    color: var(--text);
-    text-transform: uppercase;
+    font-size:13px;
+    letter-spacing:1px;
+    text-transform:uppercase;
 }
 
 .mixed-tag {
-    color: var(--purple);
-    font-size: 13px;
-    font-weight: 600;
+    color:var(--purple);
+    font-size:13px;
+    font-weight:600;
 }
-
-/* PIED DE PAGE */
 
 footer {
-    text-align: center;
-    border-top: 1px solid #F0EEEC;
-    padding: 25px;
-    font-size: 14px;
+    text-align:center;
+    border-top:1px solid #F0EEEC;
+    padding:25px;
+    font-size:14px;
 }
 
-/* RESPONSIVE */
-
-@media(max-width: 750px) {
-    header {
-        flex-direction: column;
-    }
-
-    nav {
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .chapters {
-        grid-template-columns: 1fr;
-    }
-
-    h1 {
-        font-size: 29px;
-    }
-
-    .geogebra-frame {
-        height: 480px;
-    }
-
-    .mixed-header {
-        align-items: flex-start;
-    }
+@media(max-width:750px) {
+    header { flex-direction:column; }
+    nav { justify-content:center; gap:15px; }
+    .chapters { grid-template-columns:1fr; }
+    h1 { font-size:29px; }
+    .level-tabs { flex-direction:column; }
+    .geogebra-frame { height:460px; }
 }
 </style>
 </head>
@@ -438,38 +401,33 @@ footer {
 <body>
 
 <header>
-
     <div class="logo">MATHÉMATIQUES.</div>
 
     <nav>
         <a onclick="showHome()">Accueil</a>
         <a href="#cours" onclick="showHome()">Mes chapitres</a>
-        <a href="#revisions">Révisions</a>
+        <a href="#revisions" onclick="showHome()">Révisions</a>
     </nav>
 
     <div class="student">Espace étudiant</div>
-
 </header>
 
 <main>
 
-<!-- PAGE D'ACCUEIL -->
+<!-- ACCUEIL -->
 
 <div id="home">
 
     <div class="intro">
         <h1>Bonjour, Camille !</h1>
-
         <p>
             Bienvenue dans ton espace d'apprentissage.
-            Apprends, entraîne-toi et progresse à ton rythme.
+            Découvre les mathématiques à travers des situations
+            concrètes d'économie et de gestion.
         </p>
     </div>
 
-    <!-- PROGRESSION GLOBALE -->
-
     <div class="progress-card">
-
         <div class="progress-top">
             <strong>Ma progression globale</strong>
             <strong id="progress-value">0 %</strong>
@@ -482,65 +440,71 @@ footer {
         <p style="margin-top:10px;font-size:14px;">
             Chaque notion maîtrisée te rapproche de ton objectif !
         </p>
-
     </div>
 
-    <!-- CHAPITRES -->
-
     <section id="cours">
-
         <h2>Mes chapitres</h2>
-
         <p>
-            Choisis un chapitre pour accéder à son contenu,
-            ses objectifs et ses exercices.
+            Choisis un chapitre pour découvrir les notions
+            et t'entraîner à ton rythme.
         </p>
 
         <div class="chapters">
 
             <button class="chapter" onclick="openChapter('fractions')">
-
                 <div class="chapter-number">CHAPITRE 01</div>
-
-                <h3>Les fractions</h3>
-
+                <h3>Fractions et pourcentages</h3>
                 <p>
-                    Comprendre, simplifier et calculer avec les fractions.
+                    Remises, TVA, marges commerciales
+                    et parts de marché.
                 </p>
-
                 <span class="arrow">→</span>
-
             </button>
 
             <button class="chapter" onclick="openChapter('equations')">
-
                 <div class="chapter-number">CHAPITRE 02</div>
-
                 <h3>Les équations</h3>
-
                 <p>
-                    Résoudre une équation et comprendre ses étapes.
+                    Coûts, recettes, quantités vendues
+                    et seuil de rentabilité.
                 </p>
-
                 <span class="arrow">→</span>
-
             </button>
 
             <button class="chapter" onclick="openChapter('fonctions')">
-
                 <div class="chapter-number">CHAPITRE 03</div>
-
                 <h3>Les fonctions</h3>
-
                 <p>
-                    Découvrir les fonctions et leurs représentations graphiques.
+                    Coûts, bénéfices, offre, demande
+                    et graphiques économiques.
                 </p>
-
                 <span class="arrow">→</span>
-
             </button>
 
         </div>
+    </section>
+
+    <!-- RÉVISIONS UNIQUEMENT SUR LA PAGE D'ACCUEIL -->
+
+    <section class="mixed-section" id="revisions">
+
+        <div class="mixed-label">Entraînement général</div>
+
+        <div class="mixed-header">
+            <div>
+                <h2>Je révise tout !</h2>
+                <p>
+                    Des situations économiques et commerciales
+                    issues de tous les chapitres.
+                </p>
+            </div>
+
+            <button onclick="generateMixedExercises()">
+                ↻ Nouveaux exercices
+            </button>
+        </div>
+
+        <div id="mixed-exercises"></div>
 
     </section>
 
@@ -551,39 +515,12 @@ footer {
 <div id="chapter-page" class="hidden">
 
     <button class="back-button" onclick="showHome()">
-        ← Retour aux chapitres
+        ← Retour à l'accueil
     </button>
 
     <div id="chapter-content"></div>
 
 </div>
-
-<!-- RÉVISIONS GÉNÉRALES -->
-
-<section class="mixed-section" id="revisions">
-
-    <div class="mixed-label">Pour aller plus loin</div>
-
-    <div class="mixed-header">
-
-        <div>
-            <h2>Je révise tout !</h2>
-
-            <p>
-                Des exercices mélangés pour tester tes connaissances
-                sur l'ensemble de la matière.
-            </p>
-        </div>
-
-        <button onclick="generateMixedExercises()">
-            ↻ Nouveaux exercices
-        </button>
-
-    </div>
-
-    <div id="mixed-exercises"></div>
-
-</section>
 
 </main>
 
@@ -593,236 +530,340 @@ footer {
 
 <script>
 
-// ======================================
-// 1. DONNÉES DES CHAPITRES
-// ======================================
+// =====================================
+// 1. CONTENU DES CHAPITRES
+// =====================================
 
 const chapters = {
 
-    fractions: {
-        title: "Les fractions",
-        number: "CHAPITRE 01",
+fractions: {
 
-        description:
-            "Une fraction représente une partie d'un tout. " +
-            "Dans ce chapitre, tu vas apprendre à les comprendre, " +
-            "les simplifier et effectuer des opérations.",
+    title:"Fractions et pourcentages",
+    number:"CHAPITRE 01",
 
-        objectives: [
-            "Je sais identifier le numérateur et le dénominateur.",
-            "Je sais simplifier une fraction.",
-            "Je sais additionner deux fractions.",
-            "Je sais multiplier deux fractions."
-        ],
+    description:
+    "Les pourcentages et les fractions sont présents dans " +
+    "de nombreuses situations commerciales : calcul des remises, " +
+    "TVA, marges et répartition des parts de marché.",
 
-        exercises: [
-            {
-                question:
-                    "Simplifie la fraction 6/12. Quel est son numérateur ?",
-                answer: 1
-            },
-            {
-                question:
-                    "Combien vaut 1/2 + 1/2 ? (Donne le résultat sous forme entière.)",
-                answer: 1
-            },
-            {
-                question:
-                    "Combien vaut 2/3 × 3/4 ? " +
-                    "(Donne le numérateur de la fraction simplifiée.)",
-                answer: 1
-            }
-        ]
-    },
+    objectives:[
+        "Je sais calculer une fraction d'une quantité.",
+        "Je sais calculer un pourcentage.",
+        "Je sais appliquer une réduction.",
+        "Je sais calculer une augmentation.",
+        "Je sais interpréter un pourcentage dans une situation économique."
+    ],
 
-    equations: {
-        title: "Les équations",
-        number: "CHAPITRE 02",
+    levels:[
 
-        description:
-            "Une équation est une égalité qui contient une inconnue. " +
-            "Tu vas apprendre à isoler cette inconnue pour trouver sa valeur.",
+        {
+            name:"Les bases",
+            description:"Je consolide mes acquis et je révise les calculs simples.",
 
-        objectives: [
-            "Je comprends ce qu'est une inconnue.",
-            "Je sais effectuer la même opération des deux côtés.",
-            "Je sais résoudre une équation simple.",
-            "Je sais vérifier une solution."
-        ],
+            exercises:[
+                {
+                    question:"Un magasin vend une calculatrice à 40 €. Il propose une réduction de 15 %. Quel est le montant de la réduction, en euros ?",
+                    answer:6
+                },
+                {
+                    question:"Une entreprise réalise un chiffre d'affaires de 200 €. 25 % de ce montant proviennent d'un produit. Quel montant cela représente-t-il ?",
+                    answer:50
+                },
+                {
+                    question:"Un article coûte 100 €. Son prix augmente de 10 %. Quel est son nouveau prix ?",
+                    answer:110
+                }
+            ]
+        },
 
-        exercises: [
-            {
-                question:
-                    "Résous : 2x + 4 = 10. Quelle est la valeur de x ?",
-                answer: 3
-            },
-            {
-                question:
-                    "Résous : x + 7 = 12. Quelle est la valeur de x ?",
-                answer: 5
-            },
-            {
-                question:
-                    "Résous : 3x = 21. Quelle est la valeur de x ?",
-                answer: 7
-            }
-        ]
-    },
+        {
+            name:"Intermédiaire",
+            description:"Je mobilise les pourcentages dans des situations de gestion.",
 
-    fonctions: {
-        title: "Les fonctions",
-        number: "CHAPITRE 03",
+            exercises:[
+                {
+                    question:"Une entreprise achète un produit 80 € et applique une majoration de 25 % sur son prix d'achat. Quel est son prix de vente HT ?",
+                    answer:100
+                },
+                {
+                    question:"Un magasin réalise 12 000 € de chiffre d'affaires. Les ventes en ligne représentent 35 %. Quel montant provient des ventes en ligne ?",
+                    answer:4200
+                },
+                {
+                    question:"Un article coûte 150 € HT. Calcule son prix TTC avec une TVA de 21 %.",
+                    answer:181.5
+                }
+            ]
+        },
 
-        description:
-            "Une fonction associe un nombre à un autre nombre. " +
-            "Explore les graphiques, teste différentes expressions " +
-            "et découvre les propriétés des fonctions.",
+        {
+            name:"Objectif à atteindre",
+            description:"Je combine plusieurs raisonnements et je prends des décisions.",
 
-        objectives: [
-            "Je comprends la notion de fonction.",
-            "Je sais calculer une image.",
-            "Je sais identifier un coefficient directeur.",
-            "Je sais lire un graphique.",
-            "Je sais interpréter une représentation graphique."
-        ],
+            exercises:[
+                {
+                    question:"Un article coûte 90 €. Le magasin propose deux promotions : une réduction de 20 % ou une réduction de 15 €. Quel est le prix final le plus bas ?",
+                    answer:72
+                },
+                {
+                    question:"Une entreprise vend 500 produits à 20 € pièce. Son chiffre d'affaires augmente de 10 %. Quel est le nouveau chiffre d'affaires ?",
+                    answer:11000
+                },
+                {
+                    question:"Un magasin achète un produit 60 € HT et le revend 90 € HT. Quel est son taux de marge sur le prix d'achat, en pourcentage ?",
+                    answer:50
+                }
+            ]
+        }
 
-        exercises: [
-            {
-                question:
-                    "Soit f(x) = 2x + 1. Combien vaut f(3) ?",
-                answer: 7
-            },
-            {
-                question:
-                    "Soit f(x) = 3x. Combien vaut f(4) ?",
-                answer: 12
-            },
-            {
-                question:
-                    "Soit f(x) = x + 5. Combien vaut f(2) ?",
-                answer: 7
-            }
-        ]
-    }
+    ]
+},
+
+equations: {
+
+    title:"Les équations",
+    number:"CHAPITRE 02",
+
+    description:
+    "Les équations permettent de retrouver une quantité inconnue, " +
+    "de calculer des coûts et d'étudier la rentabilité d'une entreprise.",
+
+    objectives:[
+        "Je comprends la notion d'inconnue.",
+        "Je sais isoler une inconnue.",
+        "Je sais résoudre une équation simple.",
+        "Je sais traduire une situation de gestion en équation.",
+        "Je sais interpréter une solution."
+    ],
+
+    levels:[
+
+        {
+            name:"Les bases",
+            description:"Je m'entraîne à isoler une inconnue dans des situations simples.",
+
+            exercises:[
+                {
+                    question:"Un commerçant vend un article 25 €. Il en vend x exemplaires et réalise 200 € de recettes. Combien en a-t-il vendu ?",
+                    answer:8
+                },
+                {
+                    question:"Une entreprise possède 120 € de budget. Elle dépense 40 €. Combien lui reste-t-il ?",
+                    answer:80
+                },
+                {
+                    question:"Une entreprise vend 5 articles identiques et reçoit 75 €. Quel est le prix d'un article ?",
+                    answer:15
+                }
+            ]
+        },
+
+        {
+            name:"Intermédiaire",
+            description:"Je traduis des situations économiques en équations.",
+
+            exercises:[
+                {
+                    question:"Une entreprise a 500 € de frais fixes et un coût variable de 8 € par produit. Son coût total est de 1 300 €. Combien de produits a-t-elle fabriqués ?",
+                    answer:100
+                },
+                {
+                    question:"Un commerçant vend des articles à 30 €. Il souhaite atteindre 900 € de recettes. Combien doit-il en vendre ?",
+                    answer:30
+                },
+                {
+                    question:"Un budget marketing de 1 000 € est réparti entre deux campagnes. La première coûte 400 €. Quel budget reste-t-il pour la seconde ?",
+                    answer:600
+                }
+            ]
+        },
+
+        {
+            name:"Objectif à atteindre",
+            description:"Je résous des problèmes de rentabilité et j'interprète les résultats.",
+
+            exercises:[
+                {
+                    question:"Une entreprise vend ses produits 30 € pièce. Ses coûts sont de 600 € de frais fixes et 12 € par produit. Quel est le nombre minimal de produits à vendre pour obtenir un bénéfice strictement positif ?",
+                    answer:34
+                },
+                {
+                    question:"Une entreprise vend un produit 45 €. Son coût variable est de 25 € par unité et ses frais fixes sont de 800 €. Combien d'unités doit-elle vendre pour obtenir un bénéfice de 200 € ?",
+                    answer:50
+                },
+                {
+                    question:"Deux fournisseurs proposent un service. A facture 200 € de frais fixes et 10 € par unité. B facture 100 € de frais fixes et 15 € par unité. Pour quelle quantité les deux offres coûtent-elles le même prix ?",
+                    answer:20
+                }
+            ]
+        }
+
+    ]
+},
+
+fonctions: {
+
+    title:"Les fonctions",
+    number:"CHAPITRE 03",
+
+    description:
+    "Les fonctions permettent de modéliser l'évolution des coûts, " +
+    "des recettes et des bénéfices. Elles sont également utiles " +
+    "pour comprendre les mécanismes de l'offre et de la demande.",
+
+    objectives:[
+        "Je comprends la notion de fonction.",
+        "Je sais calculer une image.",
+        "Je sais identifier une fonction affine.",
+        "Je sais interpréter un graphique.",
+        "Je sais utiliser une fonction dans un problème économique."
+    ],
+
+    levels:[
+
+        {
+            name:"Les bases",
+            description:"Je découvre les fonctions à partir de situations simples.",
+
+            exercises:[
+                {
+                    question:"Une entreprise vend un produit 10 € pièce. Sa recette est R(x) = 10x. Quelle recette réalise-t-elle en vendant 5 produits ?",
+                    answer:50
+                },
+                {
+                    question:"Le coût d'une livraison est C(x) = 5x. Quel est le coût pour 8 livraisons ?",
+                    answer:40
+                },
+                {
+                    question:"Une entreprise réalise une recette R(x) = 15x. Quelle quantité doit-elle vendre pour obtenir 150 € de recettes ?",
+                    answer:10
+                }
+            ]
+        },
+
+        {
+            name:"Intermédiaire",
+            description:"J'étudie des fonctions affines et je les interprète en gestion.",
+
+            exercises:[
+                {
+                    question:"Le coût de production est C(x) = 200 + 5x. Calcule le coût de production de 40 unités.",
+                    answer:400
+                },
+                {
+                    question:"Une entreprise vend ses produits 20 € pièce. Sa recette est R(x) = 20x. Calcule la recette pour 75 unités.",
+                    answer:1500
+                },
+                {
+                    question:"Le bénéfice d'une entreprise est B(x) = 12x - 300. Quel est le bénéfice pour 50 produits vendus ?",
+                    answer:300
+                }
+            ]
+        },
+
+        {
+            name:"Objectif à atteindre",
+            description:"J'utilise les fonctions pour analyser une situation économique et prendre une décision.",
+
+            exercises:[
+                {
+                    question:"Une entreprise a une recette R(x) = 20x et un coût C(x) = 200 + 10x. Quel est le nombre minimal d'unités à vendre pour réaliser un bénéfice strictement positif ?",
+                    answer:21
+                },
+                {
+                    question:"La demande est D(p) = 100 - 2p et l'offre est O(p) = 20 + 2p. Quel est le prix d'équilibre du marché ?",
+                    answer:20
+                },
+                {
+                    question:"Une entreprise a un bénéfice B(x) = 15x - 300. À partir de combien d'unités vendues son bénéfice devient-il strictement positif ?",
+                    answer:21
+                }
+            ]
+        }
+
+    ]
+}
 
 };
 
 
-// ======================================
-// 2. SAUVEGARDE DE LA PROGRESSION
-// ======================================
+// =====================================
+// 2. SAUVEGARDE LOCALE
+// =====================================
 
-const STORAGE_KEY = "espaceMathsProgression";
+const STORAGE_KEY = "mathsEconomieProgression";
 
 function loadProgress() {
-
     try {
-        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
-
-        return saved && typeof saved === "object"
-            ? saved
-            : {};
-    } catch (error) {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+    } catch(e) {
         return {};
     }
-
 }
 
 let progress = loadProgress();
 
 function saveProgress() {
-
     try {
-        localStorage.setItem(
-            STORAGE_KEY,
-            JSON.stringify(progress)
-        );
-    } catch (error) {
+        localStorage.setItem(STORAGE_KEY,JSON.stringify(progress));
+    } catch(e) {
         console.warn("Sauvegarde indisponible.");
     }
-
 }
 
 
-// ======================================
+// =====================================
 // 3. NAVIGATION
-// ======================================
+// =====================================
 
 function showHome() {
 
     document.getElementById("home").classList.remove("hidden");
-
     document.getElementById("chapter-page").classList.add("hidden");
 
     updateProgress();
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
+    window.scrollTo({top:0,behavior:"smooth"});
 }
-
 
 function openChapter(id) {
 
     const chapter = chapters[id];
 
     document.getElementById("home").classList.add("hidden");
-
     document.getElementById("chapter-page").classList.remove("hidden");
 
     let html = `
 
         <div class="chapter-intro">
-
-            <div class="chapter-number">
-                ${chapter.number}
-            </div>
-
+            <div class="chapter-number">${chapter.number}</div>
             <h1>${chapter.title}</h1>
-
             <p>${chapter.description}</p>
-
         </div>
 
         <section>
-
             <h2>Mes objectifs</h2>
-
-            <p>
-                Avant de terminer ce chapitre, vérifie
-                que tu maîtrises ces notions.
-            </p>
+            <p>Vérifie les compétences que tu maîtrises.</p>
 
             <div class="objectives">
-
     `;
 
-    // OBJECTIFS
+    chapter.objectives.forEach((objective,index) => {
 
-    chapter.objectives.forEach((objective, index) => {
-
-        const checked = progress[id + "-" + index] ? "checked" : "";
+        const key = id + "-" + index;
+        const checked = progress[key] ? "checked" : "";
 
         html += `
-
             <div class="objective">
-
                 <input
                     type="checkbox"
                     class="goal"
-                    id="${id}-goal-${index}"
-                    data-key="${id}-${index}"
+                    id="goal-${key}"
+                    data-key="${key}"
                     ${checked}
                 >
-
-                <label for="${id}-goal-${index}">
-                    ${objective}
-                </label>
-
+                <label for="goal-${key}">${objective}</label>
             </div>
-
         `;
 
     });
@@ -833,31 +874,43 @@ function openChapter(id) {
 
         <section>
 
-            <h2>Je m'entraîne</h2>
+            <h2>Je m'entraîne à mon rythme</h2>
 
             <p>
-                Résous les exercices suivants pour vérifier
-                ta compréhension.
+                Choisis le niveau qui correspond à tes besoins.
+                Tu peux passer au niveau suivant lorsque tu te sens prêt.
             </p>
+
+            <div class="level-tabs">
     `;
 
-    // EXERCICES DU CHAPITRE
+    chapter.levels.forEach((level,index) => {
 
-    chapter.exercises.forEach((exercise, index) => {
+        html += `
+            <button
+                class="level-button ${index === 0 ? "active" : ""}"
+                id="level-button-${index}"
+                onclick="showLevel('${id}',${index})">
 
-        html += createExercise(
-            exercise,
-            "chapter-" + id + "-" + index,
-            chapter.title
-        );
+                <strong>${index + 1}. ${level.name}</strong>
+                <small>${level.exercises.length} exercices</small>
+
+            </button>
+        `;
 
     });
 
-    html += `</section>`;
+    html += `
+            </div>
+
+            <div id="level-content"></div>
+
+        </section>
+    `;
 
     // LABORATOIRE GEOGEBRA
 
-    if (id === "fonctions") {
+    if(id === "fonctions") {
 
         html += `
 
@@ -865,39 +918,25 @@ function openChapter(id) {
 
                 <h2>Mon laboratoire de fonctions</h2>
 
-                <div class="geogebra-intro">
-
-                    <p>
-                        Place-toi dans la peau d'un mathématicien !
-                        Entre différentes fonctions, observe leurs
-                        graphiques et découvre comment elles évoluent.
-                    </p>
-
-                </div>
+                <p>
+                    Place-toi dans la peau d'un analyste économique !
+                    Observe les relations entre les coûts, les recettes
+                    et les bénéfices.
+                </p>
 
                 <div class="exercise">
 
                     <h3>Expérimente avec GeoGebra</h3>
 
-                    <p>
-                        Commence par tester ces fonctions :
-                    </p>
+                    <p>Entre les fonctions suivantes :</p>
+
+                    <p><strong>C(x) = 200 + 5x</strong> : coût de production.</p>
+                    <p><strong>R(x) = 20x</strong> : recette.</p>
+                    <p><strong>B(x) = 15x - 200</strong> : bénéfice.</p>
 
                     <p>
-                        <strong>f(x) = 2x + 1</strong>
-                    </p>
-
-                    <p>
-                        <strong>g(x) = -x + 3</strong>
-                    </p>
-
-                    <p>
-                        <strong>h(x) = x²</strong>
-                    </p>
-
-                    <p>
-                        Entre ces expressions dans GeoGebra
-                        et observe les différences.
+                        Observe les graphiques et identifie
+                        les situations où l'entreprise réalise un bénéfice.
                     </p>
 
                     <div class="geogebra-frame">
@@ -905,16 +944,11 @@ function openChapter(id) {
                         <iframe
                             src="https://www.geogebra.org/calculator?lang=fr"
                             title="Calculatrice graphique GeoGebra"
-                            allowfullscreen
-                            loading="lazy">
+                            loading="lazy"
+                            allowfullscreen>
                         </iframe>
 
                     </div>
-
-                    <p>
-                        Si le graphique ne s'affiche pas dans ton navigateur,
-                        tu peux aussi utiliser la version externe :
-                    </p>
 
                     <a
                         class="geogebra-link"
@@ -930,35 +964,25 @@ function openChapter(id) {
 
                 <div class="geogebra-tasks">
 
-                    <h3>À toi de réfléchir !</h3>
+                    <h3>Défi : l'équilibre du marché</h3>
 
                     <p>
-                        Après avoir manipulé les graphiques,
-                        essaie de répondre à ces questions :
+                        En microéconomie, on peut représenter
+                        une fonction d'offre et une fonction de demande.
+                    </p>
+
+                    <p><strong>Demande : D(p) = 100 - 2p</strong></p>
+                    <p><strong>Offre : O(p) = 20 + 2p</strong></p>
+
+                    <p>
+                        Dans GeoGebra, représente ces deux fonctions
+                        et cherche leur point d'intersection.
                     </p>
 
                     <ol>
-
-                        <li>
-                            Que se passe-t-il lorsque tu augmentes
-                            le coefficient directeur d'une fonction affine ?
-                        </li>
-
-                        <li>
-                            Que change le nombre ajouté à x
-                            dans une fonction de la forme ax + b ?
-                        </li>
-
-                        <li>
-                            Comment reconnais-tu une fonction
-                            croissante ou décroissante ?
-                        </li>
-
-                        <li>
-                            Quelle différence observes-tu entre
-                            une droite et une parabole ?
-                        </li>
-
+                        <li>Quel est le prix d'équilibre ?</li>
+                        <li>Quelle est la quantité échangée ?</li>
+                        <li>Que se passe-t-il si le prix est supérieur au prix d'équilibre ?</li>
                     </ol>
 
                 </div>
@@ -971,73 +995,97 @@ function openChapter(id) {
 
     document.getElementById("chapter-content").innerHTML = html;
 
-    // ÉCOUTE DES CASES À COCHER
-
     document.querySelectorAll(".goal").forEach(goal => {
 
-        goal.addEventListener("change", function() {
+        goal.addEventListener("change",function() {
 
-            const key = this.dataset.key;
-
-            progress[key] = this.checked;
+            progress[this.dataset.key] = this.checked;
 
             saveProgress();
-
             updateProgress();
 
         });
 
     });
 
-    updateProgress();
+    showLevel(id,0);
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    window.scrollTo({top:0,behavior:"smooth"});
 
 }
 
 
-// ======================================
-// 4. CRÉATION DES EXERCICES
-// ======================================
+// =====================================
+// 4. AFFICHER UN NIVEAU
+// =====================================
 
-function createExercise(exercise, id, chapterName) {
+function showLevel(id,index) {
+
+    const chapter = chapters[id];
+    const level = chapter.levels[index];
+
+    document.querySelectorAll(".level-button").forEach(button => {
+        button.classList.remove("active");
+    });
+
+    document.getElementById("level-button-" + index)
+        .classList.add("active");
+
+    let html = `
+
+        <div class="level-description">
+
+            <h3>${level.name}</h3>
+
+            <p>${level.description}</p>
+
+        </div>
+
+    `;
+
+    level.exercises.forEach((exercise,exerciseIndex) => {
+
+        html += createExercise(
+            exercise,
+            id + "-" + index + "-" + exerciseIndex,
+            "EXERCICE " + (exerciseIndex + 1)
+        );
+
+    });
+
+    document.getElementById("level-content").innerHTML = html;
+
+}
+
+
+// =====================================
+// 5. CONSTRUCTION DES EXERCICES
+// =====================================
+
+function createExercise(exercise,id,label) {
 
     return `
 
         <div class="exercise">
 
-            <div class="chapter-number">
-                ${chapterName}
-            </div>
-
-            <h3>Exercice</h3>
+            <div class="chapter-number">${label}</div>
 
             <p>${exercise.question}</p>
 
             <input
                 type="number"
-                id="${id}-answer"
-                placeholder="Ta réponse"
                 step="any"
+                id="answer-${id}"
+                placeholder="Ta réponse"
             >
 
             <br>
 
-            <button
-                onclick="checkAnswer('${id}', ${exercise.answer})">
-
+            <button onclick="checkAnswer('${id}',${exercise.answer})">
                 Vérifier ma réponse
-
             </button>
 
-            <div
-                class="feedback"
-                id="${id}-feedback"
-                aria-live="polite">
-            </div>
+            <div class="feedback" id="feedback-${id}" aria-live="polite"></div>
 
         </div>
 
@@ -1046,39 +1094,31 @@ function createExercise(exercise, id, chapterName) {
 }
 
 
-// ======================================
-// 5. CORRECTION AUTOMATIQUE
-// ======================================
+// =====================================
+// 6. CORRECTION
+// =====================================
 
-function checkAnswer(id, correctAnswer) {
+function checkAnswer(id,correctAnswer) {
 
-    const input = document.getElementById(id + "-answer");
+    const input = document.getElementById("answer-" + id);
+    const feedback = document.getElementById("feedback-" + id);
 
-    const feedback = document.getElementById(id + "-feedback");
+    if(input.value.trim() === "") {
 
-    if (input.value.trim() === "") {
-
-        feedback.textContent =
-            "Entre une réponse avant de vérifier.";
-
+        feedback.textContent = "Entre une réponse avant de vérifier.";
         feedback.className = "feedback error";
 
         return;
-
     }
 
-    if (Math.abs(Number(input.value) - correctAnswer) < 0.000001) {
+    if(Math.abs(Number(input.value)-correctAnswer) < 0.000001) {
 
-        feedback.textContent =
-            "Bravo ! C'est la bonne réponse.";
-
+        feedback.textContent = "Bravo ! C'est la bonne réponse.";
         feedback.className = "feedback success";
 
     } else {
 
-        feedback.textContent =
-            "Ce n'est pas encore ça. Essaie à nouveau !";
-
+        feedback.textContent = "Ce n'est pas encore ça. Relis l'énoncé et réessaie.";
         feedback.className = "feedback error";
 
     }
@@ -1086,9 +1126,9 @@ function checkAnswer(id, correctAnswer) {
 }
 
 
-// ======================================
-// 6. PROGRESSION GLOBALE
-// ======================================
+// =====================================
+// 7. PROGRESSION GLOBALE
+// =====================================
 
 function updateProgress() {
 
@@ -1097,11 +1137,11 @@ function updateProgress() {
 
     Object.keys(chapters).forEach(id => {
 
-        chapters[id].objectives.forEach((objective, index) => {
+        chapters[id].objectives.forEach((objective,index) => {
 
             total++;
 
-            if (progress[id + "-" + index]) {
+            if(progress[id + "-" + index]) {
                 checked++;
             }
 
@@ -1110,7 +1150,7 @@ function updateProgress() {
     });
 
     const percentage = total
-        ? Math.round((checked / total) * 100)
+        ? Math.round((checked/total)*100)
         : 0;
 
     document.getElementById("progress-value").textContent =
@@ -1122,21 +1162,26 @@ function updateProgress() {
 }
 
 
-// ======================================
-// 7. BASE DE TOUS LES EXERCICES
-// ======================================
+// =====================================
+// 8. BANQUE D'EXERCICES GÉNÉRALE
+// =====================================
 
 const allExercises = [];
 
 Object.keys(chapters).forEach(id => {
 
-    chapters[id].exercises.forEach(exercise => {
+    chapters[id].levels.forEach((level,levelIndex) => {
 
-        allExercises.push({
+        level.exercises.forEach(exercise => {
 
-            ...exercise,
+            allExercises.push({
 
-            chapter: chapters[id].title
+                ...exercise,
+
+                chapter:chapters[id].title,
+                level:level.name
+
+            });
 
         });
 
@@ -1145,20 +1190,20 @@ Object.keys(chapters).forEach(id => {
 });
 
 
-// ======================================
-// 8. MÉLANGE ALÉATOIRE
-// ======================================
+// =====================================
+// 9. MÉLANGE ALÉATOIRE
+// =====================================
 
 function shuffleArray(array) {
 
     const shuffled = [...array];
 
-    for (let i = shuffled.length - 1; i > 0; i--) {
+    for(let i=shuffled.length-1;i>0;i--) {
 
-        const j = Math.floor(Math.random() * (i + 1));
+        const j = Math.floor(Math.random()*(i+1));
 
-        [shuffled[i], shuffled[j]] =
-            [shuffled[j], shuffled[i]];
+        [shuffled[i],shuffled[j]] =
+        [shuffled[j],shuffled[i]];
 
     }
 
@@ -1167,31 +1212,29 @@ function shuffleArray(array) {
 }
 
 
-// ======================================
-// 9. RÉVISIONS TOUS CHAPITRES
-// ======================================
+// =====================================
+// 10. RÉVISIONS GÉNÉRALES
+// =====================================
 
 function generateMixedExercises() {
 
-    const shuffled = shuffleArray(allExercises);
+    const selected = shuffleArray(allExercises).slice(0,5);
 
-    const selected = shuffled.slice(0, 5);
+    const container = document.getElementById("mixed-exercises");
 
-    const container =
-        document.getElementById("mixed-exercises");
-
-    container.innerHTML = selected.map((exercise, index) => {
+    container.innerHTML = selected.map((exercise,index) => {
 
         return `
 
             <div class="mixed-tag">
-                QUESTION ${index + 1} / 5
+                QUESTION ${index+1} / 5 · ${exercise.chapter}
+                · ${exercise.level}
             </div>
 
             ${createExercise(
                 exercise,
                 "mixed-" + index,
-                exercise.chapter
+                "RÉVISION GÉNÉRALE"
             )}
 
         `;
@@ -1201,12 +1244,11 @@ function generateMixedExercises() {
 }
 
 
-// ======================================
-// 10. INITIALISATION
-// ======================================
+// =====================================
+// 11. INITIALISATION
+// =====================================
 
 updateProgress();
-
 generateMixedExercises();
 
 </script>
