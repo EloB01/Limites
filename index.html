@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-    <!-- Configuration correcte de MathJax pour les formules en ligne et bloc -->
+    <!-- Configuration de MathJax -->
     <script>
         window.MathJax = {
             tex: {
@@ -23,40 +23,42 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <style>
-        /* Fond global de la page et police */
+        /* Fond de page propre et police globale */
         body {
             font-family: 'Source Sans Pro', sans-serif;
-            background-color: #E6E6E1;
+            background-color: #ffffff; /* Fond blanc net pour éviter l'effet voilé */
             color: #8C8B82;
             max-width: 700px;
             margin: 40px auto;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
-        /* Titres en #8DA6D6 */
+        /* Forcer la couleur #8DA6D6 sur les titres h1 et h3 */
         h1, h3 {
-            color: #8DA6D6;
+            color: #8DA6D6 !important;
         }
 
         h1 {
             text-align: center;
         }
 
-        /* Style des blocs d'exercices */
+        /* Style des blocs d'exercices avec fond #E6E6E1 si vous le souhaitez là, ou ajustez selon vos préférences */
         .exercice {
-            background: #ffffff;
-            border-left: 5px solid #8DA6D6;
+            background: #E6E6E1; 
+            border-left: 6px solid #8DA6D6;
             padding: 20px;
-            margin: 20px 0;
+            margin: 25px 0;
             border-radius: 6px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
 
-        /* Tous les textes de description et paragraphes en #8C8B82 */
-        p, label, span {
+        /* Tous les textes en #8C8B82 */
+        p, label, span, div {
             color: #8C8B82;
+        }
+
+        /* Forcer les titres à garder leur couleur malgré les balises p/div internes */
+        .exercice h3 {
+            color: #8DA6D6 !important;
         }
 
         button {
@@ -80,10 +82,11 @@
             padding: 8px;
             font-size: 16px;
             width: 150px;
-            border: 1px solid #ccc;
+            border: 1px solid #b0b0a8;
             border-radius: 4px;
             font-family: 'Source Sans Pro', sans-serif;
             color: #333;
+            background-color: #ffffff;
         }
 
         .feedback {
@@ -119,7 +122,6 @@
     </div>
 
     <script>
-        // Correction Exercice 1
         function verifier1() {
             let val = document.getElementById('rep1').value.trim().replace(',', '.');
             let feed = document.getElementById('feedback1');
@@ -132,14 +134,12 @@
             }
         }
 
-        // Correction Exercice 2
         function verifier2() {
             let val = document.getElementById('rep2').value.trim();
             let feed = document.getElementById('feedback2');
             if (val === "2") {
                 feed.innerHTML = "🎉 Correct ! La dérivée est \\(f'(x) = 6x^2 - 4\\).";
                 feed.style.color = "#27ae60";
-                // Demande à MathJax de relire la page pour afficher la nouvelle formule injectée
                 if (window.MathJax) {
                     MathJax.typeset();
                 }
