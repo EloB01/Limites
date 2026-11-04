@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices de Mathématiques</title>
+    <!-- Chargement de MathJax pour de superbes formules mathématiques -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background-color: #ffffff;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .exercice {
+            background: #f9fbfb;
+            border-left: 5px solid #3498db;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 8px;
+            font-size: 16px;
+            width: 150px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Entraînement de Mathématiques</h1>
+    <p>Résolvez les exercices ci-dessous et validez vos réponses.</p>
+
+    <!-- EXERCICE 1 -->
+    <div class="exercice">
+        <h3>Exercice 1 : Équation du premier degré</h3>
+        <p>Résolvez l'équation suivante : \(3x - 5 = 10\)</p>
+        <p>Donnez la valeur de \(x\) (si c'est une fraction, écrivez-la sous forme décimale, ex: 2.5) :</p>
+        <input type="text" id="rep1" placeholder="Votre réponse">
+        <button onclick="verifier1()">Valider</button>
+        <div id="feedback1" class="feedback"></div>
+    </div>
+
+    <!-- EXERCICE 2 -->
+    <div class="exercice">
+        <h3>Exercice 2 : Calcul de dérivée</h3>
+        <p>Soit la fonction \(f(x) = 2x^3 - 4x + 1\). Quel est le coefficient directeur de la tangente en \(x = 1\), c'est-à-dire la valeur de \(f'(1)\) ?</p>
+        <input type="number" id="rep2" placeholder="Votre réponse">
+        <button onclick="verifier2()">Valider</button>
+        <div id="feedback2" class="feedback"></div>
+    </div>
+
+    <script>
+        // Correction Exercice 1 (3x - 5 = 10 => 3x = 15 => x = 5)
+        function verifier1() {
+            let val = document.getElementById('rep1').value.trim().replace(',', '.');
+            let feed = document.getElementById('feedback1');
+            if (val === "5") {
+                feed.innerHTML = "🎉 Correct ! Bravo.";
+                feed.style.color = "green";
+            } else {
+                feed.innerHTML = "❌ Incorrect. Indice : isolez d'abord 3x en ajoutant 5 des deux côtés.";
+                feed.style.color = "e74c3c";
+            }
+        }
+
+        // Correction Exercice 2 (f'(x) = 6x^2 - 4 => f'(1) = 6(1)^2 - 4 = 2)
+        function verifier2() {
+            let val = document.getElementById('rep2').value.trim();
+            let feed = document.getElementById('feedback2');
+            if (val === "2") {
+                feed.innerHTML = "🎉 Correct ! La dérivée est \(f'(x) = 6x^2 - 4\).";
+                feed.style.color = "green";
+                // Relance MathJax si du texte mathématique dynamique est injecté
+                MathJax.typeset();
+            } else {
+                feed.innerHTML = "❌ Incorrect. Pensez à dériver chaque terme séparément.";
+                feed.style.color = "#e74c3c";
+            }
+        }
+    </script>
+
+</body>
+</html>
